@@ -1,0 +1,139 @@
+[
+    {
+        "data" : [ { "dummy": "dummy" } ],
+        "common": {
+            "index": 0,
+            "dateField": "date",
+            "isAllDownloaded": false,
+            "loadDataFunction" : null,
+            "url": "pdo_read_davis_by_date.php",
+            "title": "Meteostanice Frymburk",
+            "navName" : "Frymburk"
+        },
+        "specific": [
+            [
+                {
+                    "sourceField": "temp_low",
+                    "color": "lime",
+                    "style": "line",
+                    "width": 1,
+                    "header": "temp_low [\\xB0C]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "temp_high",
+                    "color": "yellow",
+                    "style": "line",
+                    "width": 1,
+                    "header": "temp_high [\\xB0C]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "temp_mean",
+                    "color": "white",
+                    "style": "line",
+                    "width": 1,
+                    "header": "temp_mean [\\xB0C]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "wind_speed_high",
+                    "color": "red",
+                    "style": "area",
+                    "width": 5,
+                    "header": "wind_speed_high [m/s]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "wind_speed_avg",
+                    "color": "whitee",
+                    "style": "area",
+                    "width": 5,
+                    "header": "wind_speed_avg [m/s]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "bar_min",
+                    "color": "green",
+                    "style": "line",
+                    "width": 1,
+                    "header": "bar_min [hPa]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "bar_max",
+                    "color": "red",
+                    "style": "line",
+                    "width": 1,
+                    "header": "bar_max [hPa]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "bar_avg",
+                    "color": "white",
+                    "style": "line",
+                    "width": 1,
+                    "header": "bar_avg [hPa]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "huminidy_min",
+                    "color": "green",
+                    "style": "line",
+                    "width": 1,
+                    "header": "huminidy_min [%]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "huminidy_max",
+                    "color": "ping",
+                    "style": "line",
+                    "width": 1,
+                    "header": "huminidy_max [%]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "huminidy_avg",
+                    "color": "white",
+                    "style": "line",
+                    "width": 1,
+                    "header": "huminidy_avg [%]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "rain_rate_max",
+                    "color": "orange",
+                    "style": "area",
+                    "width": 5,
+                    "header": "rain_rate_max [mm/h]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "rain",
+                    "color": "whitee",
+                    "style": "area",
+                    "width": 5,
+                    "header": "rain [mm]",
+                    "group": 2,
+                    "lineStyle": []
+                }
+            ]
+        ]
+    }
+]

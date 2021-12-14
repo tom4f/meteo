@@ -1,0 +1,12 @@
+[0] DANGER! --> git reset HEAD~ --hard <--- everything was lost :-(
+
+[1] npx create-react-app . --template typescript
+[2] npm run start
+
+[3] npm install react-router-dom
+
+[4] npm install --save-dev sass 
+
+
+git remote add origin https://github.com/tom4f/meteo.git
+

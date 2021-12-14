@@ -1,0 +1,102 @@
+[
+    {
+        "data" : [ { "dummy": "dummy" } ],
+        "common": {
+            "index": 0,
+            "dateField": "date",
+            "isAllDownloaded": false,
+            "loadDataFunction" : null,
+            "url": "pdo_read_old_station_by_date.php",
+            "title": "Původní meteostanice Frymburk",
+            "navName" : "Frymburk"
+        },
+        "specific": [
+            [
+                {
+                    "sourceField": "wind3",
+                    "color": "grey",
+                    "style": "area",
+                    "width": 1,
+                    "header": "wind>3m/s [min]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "wind6",
+                    "color": "orange",
+                    "style": "area",
+                    "width": 1,
+                    "header": "wind>6m/s [min]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "wind9",
+                    "color": "lime",
+                    "style": "area",
+                    "width": 1,
+                    "header": "wind>9m/s [min]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "windmax",
+                    "color": "limew",
+                    "style": "line",
+                    "width": 2,
+                    "header": "windmax [min]",
+                    "group": 2,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "direct",
+                    "color": "white",
+                    "style": "dot",
+                    "width": 2,
+                    "header": "dir []",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "tempmin",
+                    "color": "blue",
+                    "style": "line",
+                    "width": 1,
+                    "header": "tempMin [\\xB0C]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "tempavg",
+                    "color": "white",
+                    "style": "line",
+                    "width": 1,
+                    "header": "tempAvg [\\xB0C]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "tempmax",
+                    "color": "red",
+                    "style": "line",
+                    "width": 1,
+                    "header": "tempMax [\\xB0C]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "rain",
+                    "color": "lime",
+                    "style": "area",
+                    "width": 1,
+                    "header": "rain [mm]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ]
+        ]
+    }
+]
