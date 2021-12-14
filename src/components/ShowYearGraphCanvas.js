@@ -105,7 +105,7 @@ export const ShowYearGraphCanvas = () => {
 
             const hladina     = new Draw(
                 [ canvas, canvas_pointer, dateStorage, pdoResp, isAllDownloaded, loadPocasi ]
-                , [ 'pritok' , 'lime' , 'line', 2, 'pritok [m\xB3/s]', 1, [] ]
+                , [ 'pritok' , 'lime' , 'line', 2, 'pritok', 1, [] ]
                 , [ 'hladina', 'red', 'line', 2, 'hladina [m n.m.]', 2, [] ]
                 , [ 'odtok'  , 'white' , 'line', 2, 'odtok [m\xB3/s]' , 1, [] ]
             ); 

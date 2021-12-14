@@ -10,12 +10,12 @@ export const SelectDay = () => {
 
     return (
         <>
-           {/*  <ShowDayGraphCanvasToday /> */}
+            <ShowDayGraphCanvasToday />
             <DavisGraphs />
 {/*             <ShowDayGraphCanvas /> */}
-{/*             <ShowDayTable />
+            <ShowDayTable />
             <ShowDayGraph />
-            <ShowDayStatistic /> */}
+            <ShowDayStatistic />
         </>
     )
 }

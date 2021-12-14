@@ -1,12 +1,12 @@
 import { OneGraph } from './../components/OneGraph'
 import { Fragment, useEffect, useState } from 'react'
-import { graphDataType, loadDataFunctionType } from './TypeDefinition';
+import { graphDataType, loadDataFunctionCustomType } from './TypeDefinition';
 
-export const OnePage = ( { graphsConfig, loadPocasiAsyncCustom }: { graphsConfig: graphDataType[], loadPocasiAsyncCustom: loadDataFunctionType } ) => {
+export const OnePage = ( { graphsConfig, loadPocasiAsyncCustom }: { graphsConfig: graphDataType[], loadPocasiAsyncCustom: loadDataFunctionCustomType } ) => {
     const [ graphsData, setGraphsData ] = useState(graphsConfig)
 
     useEffect( () => {
-       ( async() => setGraphsData( await loadPocasiAsyncCustom() as graphDataType[] ) )()
+       ( async() => setGraphsData( await loadPocasiAsyncCustom(undefined, undefined, 999) as graphDataType[] ) )()
     }, [])
 
     return (
@@ -24,7 +24,7 @@ export const OnePage = ( { graphsConfig, loadPocasiAsyncCustom }: { graphsConfig
                                         specific: oneSpecific,
                                         common: {
                                             ...graphData.common,
-                                            loadDataFunction : loadPocasiAsyncCustom as loadDataFunctionType,
+                                            loadDataFunction : loadPocasiAsyncCustom as loadDataFunctionCustomType,
                                             index
                                         }
                                     }}

@@ -10,7 +10,7 @@ const getTextDateFromNewDate = (updDate: Date) =>{
 }
 
 const loadPocasiAsyncCustom = async (
-    start = getTextDateFromNewDate( new Date( '2011-08-22' )  ),
+    start = getTextDateFromNewDate( new Date( '2011-08-22' ) ),
     end =   getTextDateFromNewDate( new Date( '2012-08-22' ) ),
     index = 999
 ) => {

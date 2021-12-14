@@ -1,4 +1,4 @@
-import { oneGraphDataType, pureData, specificType, isAllDownloaded, loadDataFunctionType, graphDataType } from "./TypeDefinition";
+import { oneGraphDataType, pureData, specificType, isAllDownloaded, loadDataFunctionCustomType, graphDataType } from "./TypeDefinition";
 
 export default class Draw implements isAllDownloaded {
 
@@ -6,7 +6,7 @@ export default class Draw implements isAllDownloaded {
     dataReduced    : pureData[]
     dateField      : string
     isAllDownloaded: boolean
-    loadPocasi     : loadDataFunctionType | undefined
+    loadPocasi     : loadDataFunctionCustomType | undefined
     graphsConfig   : specificType[]
     isAllDownloadedForOneGraph: boolean
     private ctx        : CanvasRenderingContext2D
@@ -295,7 +295,8 @@ export default class Draw implements isAllDownloaded {
         if (this.isAllDownloaded === false && this.loadPocasi) {
             try { 
                 const dummy = await this.loadPocasi('1999-01-01', '2099-01-01', this.graphData.common.index) as graphDataType[];
-                this.dataOrig = dummy[this.graphData.common.index].data
+                console.log(dummy)
+                this.dataOrig = dummy[0].data
                 this.isAllDownloaded = true;
             }
             catch (err) {

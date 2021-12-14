@@ -13,124 +13,49 @@
         "specific": [
             [
                 {
-                    "sourceField": "temp_low",
+                    "sourceField": "pritok",
                     "color": "lime",
                     "style": "line",
-                    "width": 1,
-                    "header": "temp_low [\\xB0C]",
+                    "width": 2,
+                    "header": "pritok [m\\xB3/s]",
                     "group": 1,
                     "lineStyle": []
                 },
                 {
-                    "sourceField": "temp_high",
-                    "color": "yellow",
-                    "style": "line",
-                    "width": 1,
-                    "header": "temp_high [\\xB0C]",
-                    "group": 1,
-                    "lineStyle": []
-                },
-                {
-                    "sourceField": "temp_mean",
-                    "color": "white",
-                    "style": "line",
-                    "width": 1,
-                    "header": "temp_mean [\\xB0C]",
-                    "group": 1,
-                    "lineStyle": []
-                }
-            ],[
-                {
-                    "sourceField": "wind_speed_high",
-                    "color": "red",
-                    "style": "area",
-                    "width": 5,
-                    "header": "wind_speed_high [m/s]",
-                    "group": 1,
-                    "lineStyle": []
-                },
-                {
-                    "sourceField": "wind_speed_avg",
-                    "color": "whitee",
-                    "style": "area",
-                    "width": 5,
-                    "header": "wind_speed_avg [m/s]",
-                    "group": 1,
-                    "lineStyle": []
-                }
-            ],[
-                {
-                    "sourceField": "bar_min",
-                    "color": "green",
-                    "style": "line",
-                    "width": 1,
-                    "header": "bar_min [hPa]",
-                    "group": 1,
-                    "lineStyle": []
-                },
-                {
-                    "sourceField": "bar_max",
+                    "sourceField": "hladina",
                     "color": "red",
                     "style": "line",
-                    "width": 1,
-                    "header": "bar_max [hPa]",
-                    "group": 1,
-                    "lineStyle": []
-                },
-                {
-                    "sourceField": "bar_avg",
-                    "color": "white",
-                    "style": "line",
-                    "width": 1,
-                    "header": "bar_avg [hPa]",
-                    "group": 1,
-                    "lineStyle": []
-                }
-            ],[
-                {
-                    "sourceField": "huminidy_min",
-                    "color": "green",
-                    "style": "line",
-                    "width": 1,
-                    "header": "huminidy_min [%]",
-                    "group": 1,
-                    "lineStyle": []
-                },
-                {
-                    "sourceField": "huminidy_max",
-                    "color": "ping",
-                    "style": "line",
-                    "width": 1,
-                    "header": "huminidy_max [%]",
-                    "group": 1,
-                    "lineStyle": []
-                },
-                {
-                    "sourceField": "huminidy_avg",
-                    "color": "white",
-                    "style": "line",
-                    "width": 1,
-                    "header": "huminidy_avg [%]",
-                    "group": 1,
-                    "lineStyle": []
-                }
-            ],[
-                {
-                    "sourceField": "rain_rate_max",
-                    "color": "orange",
-                    "style": "area",
-                    "width": 5,
-                    "header": "rain_rate_max [mm/h]",
-                    "group": 1,
-                    "lineStyle": []
-                },
-                {
-                    "sourceField": "rain",
-                    "color": "whitee",
-                    "style": "area",
-                    "width": 5,
-                    "header": "rain [mm]",
+                    "width": 2,
+                    "header": "hladina [m n.m.]",
                     "group": 2,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "odtok",
+                    "color": "white",
+                    "style": "line",
+                    "width": 2,
+                    "header": "odtok [m\\xB3/s]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "voda",
+                    "color": "white",
+                    "style": "line",
+                    "width": 2,
+                    "header": "voda [\\xB0C]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "vzduch",
+                    "color": "lime",
+                    "style": "line",
+                    "width": 2,
+                    "header": "vzduch ráno [\\xB0C]",
+                    "group": 1,
                     "lineStyle": []
                 }
             ]

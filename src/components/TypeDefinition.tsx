@@ -33,12 +33,14 @@ export type specificType = {
     lineStyle: [];
 }
 
-export type loadDataFunctionType = (startDate?: string, endDate?: string, index?: number ) => Promise<graphDataType[]> | undefined
+export type loadDataFunctionCustomType = (startDate?: string, endDate?: string, index?: number ) => Promise<graphDataType[]>
+
+export type loadDataFunctionType = (start: string, end: string, index: number, graphsConfig: graphDataType[] ) => Promise<graphDataType[]>
 
 export type commonType = {
     dateField: string
     isAllDownloaded: boolean;
-    loadDataFunction?: loadDataFunctionType;
+    loadDataFunction: loadDataFunctionCustomType;
     url: string;
     title: string;
     navName : string;  

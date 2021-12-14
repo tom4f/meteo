@@ -10,8 +10,8 @@ const getTextDateFromNewDate = (updDate: Date) =>{
 }
 
 const loadPocasiAsyncCustom = async (
-    start = getTextDateFromNewDate( new Date( '2011-08-22' )  ),
-    end =   getTextDateFromNewDate( new Date( '2012-08-22' ) ),
+    start = getTextDateFromNewDate( new Date( new Date().setFullYear ( new Date().getFullYear() - 1 )  ) ),
+    end =   getTextDateFromNewDate( new Date() ),
     index = 999
 ) => {
     return await loadPocasiAsync(start, end, index, graphsConfig) as graphDataType[]
