@@ -20,9 +20,17 @@ const loadPocasiAsyncCustom = async (
 export const LipnoGraphs = () => {
 
     return (
-        <OnePage
-            graphsConfig = { graphsConfig }
-            loadPocasiAsyncCustom = { loadPocasiAsyncCustom }
-        />
+        <>
+            <header id="detail_graphs" className="header">
+                <a href="https://www.frymburk.com/projects/92_canvas_graph/index.html">
+                    HISTORIE - dynamické grafy - na celou obrazovku &nbsp;
+                    <i className="fas fa-expand-arrows-alt"></i>
+                </a>
+            </header>
+            <OnePage
+                graphsConfig = { graphsConfig }
+                loadPocasiAsyncCustom = { loadPocasiAsyncCustom }
+            />
+        </>
     )
 }
