@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Draw from './Draw';
 import { commonPath } from './apiPath.js'
 

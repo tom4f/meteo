@@ -3,11 +3,11 @@ import { DateContext } from './DateContext';
 import { apiPath } from './apiPath.js'
 
 export const ShowYearTable = ({
-    pocasi, setPocasi,
-    //refresh = 0,
     editMeteo : { refresh } = 0,
     user = 'no-user',
     webToken = 'error' }) => {
+
+    const [ pocasi, setPocasi ] = useState([]);
 
     const { globalDate } = useContext(DateContext);
 
