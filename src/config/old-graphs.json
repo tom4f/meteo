@@ -54,7 +54,7 @@
                     "color": "white",
                     "style": "dot",
                     "width": 2,
-                    "header": "dir []",
+                    "header": "dir [°]",
                     "group": 1,
                     "lineStyle": []
                 }
@@ -64,7 +64,7 @@
                     "color": "blue",
                     "style": "line",
                     "width": 1,
-                    "header": "tempMin [\\xB0C]",
+                    "header": "tempMin [°C]",
                     "group": 1,
                     "lineStyle": []
                 },
@@ -73,7 +73,7 @@
                     "color": "white",
                     "style": "line",
                     "width": 1,
-                    "header": "tempAvg [\\xB0C]",
+                    "header": "tempAvg [°C]",
                     "group": 1,
                     "lineStyle": []
                 },
@@ -82,7 +82,7 @@
                     "color": "red",
                     "style": "line",
                     "width": 1,
-                    "header": "tempMax [\\xB0C]",
+                    "header": "tempMax [°C]",
                     "group": 1,
                     "lineStyle": []
                 }

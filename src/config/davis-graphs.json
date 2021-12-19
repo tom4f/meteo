@@ -17,7 +17,7 @@
                     "color": "lime",
                     "style": "line",
                     "width": 1,
-                    "header": "temp_low [\\xB0C]",
+                    "header": "temp_low [°C]",
                     "group": 1,
                     "lineStyle": []
                 },
@@ -26,7 +26,7 @@
                     "color": "yellow",
                     "style": "line",
                     "width": 1,
-                    "header": "temp_high [\\xB0C]",
+                    "header": "temp_high [°C]",
                     "group": 1,
                     "lineStyle": []
                 },
@@ -35,7 +35,7 @@
                     "color": "white",
                     "style": "line",
                     "width": 1,
-                    "header": "temp_mean [\\xB0C]",
+                    "header": "temp_mean [°C]",
                     "group": 1,
                     "lineStyle": []
                 }
@@ -51,7 +51,7 @@
                 },
                 {
                     "sourceField": "wind_speed_avg",
-                    "color": "whitee",
+                    "color": "white",
                     "style": "area",
                     "width": 5,
                     "header": "wind_speed_avg [m/s]",

@@ -1,0 +1,111 @@
+[
+    {
+        "data" : [ { "dummy": "dummy" } ],
+        "common": {
+            "index": 0,
+            "dateField": "Date",
+            "isAllDownloaded": true,
+            "loadDataFunction" : null,
+            "url": "dummy.php",
+            "title": "Meteostanice Frymburk",
+            "navName" : "Frymburk"
+        },
+        "specific": [
+            [
+                {
+                    "sourceField": "THWIndex",
+                    "color": "lime",
+                    "style": "line",
+                    "width": 1,
+                    "header": "THWIndex [°C]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "TempOut",
+                    "color": "white",
+                    "style": "line",
+                    "width": 1,
+                    "header": "TempOut [°C]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "DewPt",
+                    "color": "blue",
+                    "style": "line",
+                    "width": 1,
+                    "header": "DewPt [°C]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "HumOut",
+                    "color": "white",
+                    "style": "line",
+                    "width": 1,
+                    "header": "HumOut [%]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "Bar",
+                    "color": "lime",
+                    "style": "line",
+                    "width": 1,
+                    "header": "Bar [hPa]",
+                    "group": 2,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "Rain",
+                    "color": "green",
+                    "style": "line",
+                    "width": 1,
+                    "header": "Rain [mm]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "RainRate",
+                    "color": "white",
+                    "style": "line",
+                    "width": 1,
+                    "header": "RainRate [mm/h]",
+                    "group": 2,
+                    "lineStyle": []
+                }
+            ],[
+                {
+                    "sourceField": "HiSpeed",
+                    "color": "lime",
+                    "style": "area",
+                    "width": 1,
+                    "header": "HiSpeed [m/s]",
+                    "group": 1,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "WindDir",
+                    "color": "orange",
+                    "style": "dot",
+                    "width": 1,
+                    "header": "WindDir [°]",
+                    "group": 2,
+                    "lineStyle": []
+                },
+                {
+                    "sourceField": "WindSpeed",
+                    "color": "blue",
+                    "style": "area",
+                    "width": 1,
+                    "header": "WindSpeed [m/s]",
+                    "group": 1,
+                    "lineStyle": []
+                }
+            ]
+        ]
+    }
+]

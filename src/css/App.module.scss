@@ -1,21 +1,13 @@
-.navbar1 {
-    display: flex;
-    align-items: center;
+.top_container {
+    background: black;
+    margin: auto;
+    width: 100%;
+    max-width: 724px;
+}
+
+.graphs {
+    margin: auto;
     justify-content: center;
-}
-
-.navbar {
-    width: 33.33333%;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.btnOff {
-    background: #fff;
-    color: #000;
-}
-
-.btnOn {
-    background: grey;
-    color: #fff;
-}
+    text-align: center;
+    color: white;
+  }

@@ -1,8 +1,8 @@
 import { DateProvider }            from './components/DateContext';
 import Top                         from './components/Top';
-import Bottom                      from './components/Bottom';
+import { Bottom }                  from './components/Bottom';
 import { ModifyPocasi }            from './components/ModifyPocasi';
-import { ShowDayGraphCanvasToday } from './components/ShowDayGraphCanvasToday';
+import { DavisGraphsDay }          from './components/DavisGraphsDay';
 import { DavisGraphs }             from './components/DavisGraphs';
 import { ShowDayTable }            from './components/ShowDayTable';
 import { ShowDayStatistic }        from './components/ShowDayStatistic';
@@ -14,16 +14,16 @@ import { ShowDayGraph }            from './components/ShowDayGraph';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { NavBar, NavBarDavis,
   NavBarLipno, NavBarOldStation }  from './components/NavBar';
+import AppStyles from './css/App.module.scss'
 
-import './css/main.css';
 import './css/meteo.css';
 
 export const App = () => {
   return (
-    <div className="top_container">
+    <div className={ AppStyles.top_container } >
       <Top/>
-      <NavBar />
-      <div className="graphs">
+      <div className={ AppStyles.graphs } >
+        <NavBar />
         <DateProvider>
           <Routes>
             <Route path='*' element={<Navigate replace to='frymburk' />} />
@@ -31,7 +31,7 @@ export const App = () => {
 
             <Route path='frymburk' element = { <NavBarDavis /> } >
               <Route path='' element={<Navigate replace to='week' />} />
-              <Route path='week' element = { <ShowDayGraphCanvasToday /> } />
+              <Route path='week' element = { <DavisGraphsDay /> } />
               <Route path='year' element = { <DavisGraphs /> } />
               <Route path='table' element = {
                 <>

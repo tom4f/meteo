@@ -7,13 +7,26 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 const path = window.location.pathname
 const lastIndexSlash = path.lastIndexOf('/')
-const cutLastPart = path.substring(0, lastIndexSlash)
-console.log(path + ' -> ' + cutLastPart)
+const cutLastPart = (path.substring(0, lastIndexSlash))
+
+const isLipnonet = cutLastPart.search('lipnonet') !== -1
+console.log(isLipnonet)
+const origPathWithoutLipnonet = isLipnonet ? cutLastPart.replace('/lipnonet', '') : cutLastPart
+
+let replace: string
+replace = origPathWithoutLipnonet.replace('/frymburk', '')
+replace = replace.replace('/lipno', '')
+replace = replace.replace('/oldStation', '')
+
+replace = isLipnonet ? '/lipnonet' + replace : replace
+
+console.log(window.location.origin)
+console.log(path + ' -> ' + cutLastPart  + ' -> ' + replace)
 
 
 ReactDOM.render(
 <React.StrictMode>
-  <Router basename={cutLastPart}>
+  <Router basename={replace}>
     <App />
   </Router>
 </React.StrictMode>,
