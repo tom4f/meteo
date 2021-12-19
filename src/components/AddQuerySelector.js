@@ -1,6 +1,8 @@
 export const addQuerySelector = ( pocasi, editMeteo, setEditMeteo, webToken ) => {
     // set 'click' event listener for all table <div>
 
+console.log(pocasi)
+
     const editTermin = (event) => {
         const clickedTd = event.target;
         const childsTd = clickedTd.parentNode.children;
@@ -48,7 +50,7 @@ export const addQuerySelector = ( pocasi, editMeteo, setEditMeteo, webToken ) =>
                     editKey,
                     editValue,
                     dispEdit : false,
-                    dispDelete : true
+                    dispDelete : true,
                 }
             );
             console.log(pocasi[clickedRowNr].datum);
@@ -58,6 +60,8 @@ export const addQuerySelector = ( pocasi, editMeteo, setEditMeteo, webToken ) =>
     const clickedDiv = document.querySelectorAll('td');
     // add eventListener only if login OK
     if ( webToken !== 'error' ) {
-        clickedDiv.forEach( div => div.addEventListener('click', (e) => editTermin(e) ))
+        clickedDiv.forEach( div => {
+            div.addEventListener('click', (e) => editTermin(e) )
+        })
     }
 }

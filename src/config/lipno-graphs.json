@@ -17,7 +17,7 @@
                     "color": "lime",
                     "style": "line",
                     "width": 2,
-                    "header": "pritok [m\\xB3/s]",
+                    "header": "pritok [m³/s]",
                     "group": 1,
                     "lineStyle": []
                 },
@@ -35,7 +35,7 @@
                     "color": "white",
                     "style": "line",
                     "width": 2,
-                    "header": "odtok [m\\xB3/s]",
+                    "header": "odtok [m³/s]",
                     "group": 1,
                     "lineStyle": []
                 }
@@ -45,7 +45,7 @@
                     "color": "white",
                     "style": "line",
                     "width": 2,
-                    "header": "voda [\\xB0C]",
+                    "header": "voda [°C]",
                     "group": 1,
                     "lineStyle": []
                 },
@@ -54,7 +54,7 @@
                     "color": "lime",
                     "style": "line",
                     "width": 2,
-                    "header": "vzduch ráno [\\xB0C]",
+                    "header": "vzduch ráno [°C]",
                     "group": 1,
                     "lineStyle": []
                 }

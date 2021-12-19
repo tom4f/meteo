@@ -38,7 +38,5 @@ export const loadPocasiAsync: loadDataFunctionType = async (start, end, index, g
         ( { ...graphsConfig[ urlListFiltered[index1].id ], data } )
     )
 
-    console.log(graphsData)
-
     return graphsData
 }

@@ -7,7 +7,7 @@ import { DavisGraphs }             from './components/DavisGraphs';
 import { ShowDayTable }            from './components/ShowDayTable';
 import { ShowDayStatistic }        from './components/ShowDayStatistic';
 import { LipnoGraphs }             from './components/LipnoGraphs';
-import { ShowYearTable }           from './components/ShowYearTable';
+import { YearTable }           from './components/YearTable';
 import { OldGraphs }               from './components/OldGraphs';
 import { ShowOldStationTable }     from './components/ShowOldStationTable';
 import { ShowDayGraph }            from './components/ShowDayGraph';
@@ -45,7 +45,7 @@ export const App = () => {
             <Route path='lipno' element = { <NavBarLipno /> } >
               <Route path='' element={<Navigate replace to='graphs' />} />
               <Route path='graphs' element = { <LipnoGraphs /> } />
-              <Route path='table' element = { <ShowYearTable /> } />
+              <Route path='table' element = { <YearTable /> } />
             </Route>
 
             <Route path='oldStation' element = { <NavBarOldStation /> } >

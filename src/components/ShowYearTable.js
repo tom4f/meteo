@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { DateContext } from './DateContext';
 import { apiPath } from './apiPath.js'
 
 export const ShowYearTable = ({
+    pocasi, setPocasi,
     editMeteo : { refresh } = 0,
     user = 'no-user',
     webToken = 'error' }) => {
-
-    const [ pocasi, setPocasi ] = useState([]);
 
     const { globalDate } = useContext(DateContext);
 

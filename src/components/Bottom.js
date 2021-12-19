@@ -2,7 +2,7 @@ import BottomStyle from './../css/Bottom.module.scss'
 
 export const Bottom = () => {
     return ( 
-        <span>
+        <div>
             <div className={ BottomStyle.bottom } >
                 <a href="https://www.toplist.cz/stat/6477" target="_top">
                     <img src="https://toplist.cz/count.asp?id=6477&logo=bc" border="0" alt="TOPlist" width="88" height="120"/>
@@ -17,6 +17,6 @@ export const Bottom = () => {
                 <a href="http://www.frymburk.com/"> FRYMBURK.com</a> | 
                 <a href="http://www.frymburk.eu/"> FRYMBURK.eu</a>
             </div>
-        </span>
+        </div>
     );
 }
