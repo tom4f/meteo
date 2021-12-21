@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { DateContext } from './DateContext';
-import { apiPath } from './apiPath.js'
+import { apiPath } from './apiPath'
 
 export const ShowOldStationTable = () => {
 

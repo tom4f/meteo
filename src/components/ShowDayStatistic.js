@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext} from 'react';
 import { DateContext } from './DateContext';
 import { ChangeDate } from './ChangeDate';
-import { commonPath } from './apiPath.js'
+import { commonPath } from './apiPath'
 
 export const ShowDayStatistic = ( ) => {
 

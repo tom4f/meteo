@@ -40,7 +40,7 @@ export const NavBarDavis = () => {
 
 
               <NavLink className={ navData => activeStyle(navData) } to='year' >
-                od roku 2021
+                od roku 2012
               </NavLink>
 
 
@@ -89,7 +89,7 @@ export const NavBarOldStation = () => {
         <nav>
 
               <NavLink className={ navData => activeStyle(navData) } to='graphs' >
-                grafy od roku 2000
+                grafy do roku 2012
               </NavLink>
 
 

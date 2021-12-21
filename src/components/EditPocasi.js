@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { apiPath } from './apiPath.js'
+import { apiPath } from './apiPath'
 
 export const EditPocasi = ({ 
         editMeteo,
