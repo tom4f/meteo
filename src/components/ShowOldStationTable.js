@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { DateContext } from './DateContext';
 import { apiPath } from './apiPath'
+import TableStyle from './../css/Table.module.scss'
 
 export const ShowOldStationTable = () => {
 
@@ -54,7 +55,7 @@ export const ShowOldStationTable = () => {
         davis.forEach( (one, index) => {
             output.push( 
                 <tr key={index}>
-                     <td className="link">{one.date}</td> 
+                     <td className={ TableStyle.link }>{one.date}</td> 
                     {/*<td className="link" >{one.date}</td>*/}
         
                     <td style={ rgbCss(0, 255, 0, one.wind3                 /1285 ) }>{one.wind3}</td>
@@ -95,7 +96,7 @@ export const ShowOldStationTable = () => {
                 <button onClick={ () => setStart( start >= 365 ? start - 365 : start ) } > &nbsp; {'>>'} &nbsp; </button>
                 &nbsp; dní
             </header>
-                <section className="davisTable">
+                <section className={ TableStyle.davisTable }>
                     <table>
                         <thead>
                             <tr>

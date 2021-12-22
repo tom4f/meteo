@@ -1,5 +1,6 @@
-import React, { useState }          from 'react';
+import { useState }          from 'react';
 import { apiPath } from './apiPath'
+import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
 
 export const AddPocasi = ({
         pocasi,
@@ -79,7 +80,7 @@ export const AddPocasi = ({
 
     return (
         <>
-        <div className="add-container">
+        <div className={ModifyPocasiStyle.container }>
           <div className="close-btn" onClick={ () => setEditMeteo( { ...editMeteo, dispAdd : false } ) } ><span>x</span></div>
           { loginResp==='error' ? <div> Někde nastala chyba :-(</div> : null }
           <h4>Nový záznam  </h4>

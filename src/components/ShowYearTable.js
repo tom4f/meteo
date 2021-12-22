@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { DateContext } from './DateContext';
 import { apiPath } from './apiPath'
+import TableStyle from './../css/Table.module.scss'
 
 export const ShowYearTable = ({
     pocasi, setPocasi,
@@ -61,7 +62,7 @@ export const ShowYearTable = ({
         const output = [];
         pocasi.forEach( (one, index)  => output.push( 
             <tr key={index}>
-                <td className={ webToken !== 'error' ? 'datum' : null }>{one.datum}</td>
+                <td className={ webToken !== 'error' ? TableStyle.datum : null }>{one.datum}</td>
                 <td style={ rgbCss(255, 0, 0, 1 - (725 - one.hladina)       /2 ) }>{one.hladina}</td>
                 <td style={ rgbCss(0, 255, 0, one.pritok                    /100 ) }>{one.pritok}</td>
                 <td style={ rgbCss(0, 255, 0, one.odtok                     /100 ) }>{one.odtok}</td>
@@ -91,7 +92,7 @@ export const ShowYearTable = ({
                 <button onClick={ () => start - limit >= 0 ? setStart( start - limit ) : null  } > &nbsp; {'>'} &nbsp; </button>
                 &nbsp; dní
             </header>
-            <section className="davisTable">
+            <section className={ TableStyle.davisTable }>
                 <table>
                     <thead>
                         <tr>

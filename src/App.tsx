@@ -28,6 +28,7 @@ export const App = () => {
         <DateProvider>
             <Routes>
                 <Route path='*' element={<Navigate replace to={ editStatus ? 'lipno/edit' : 'frymburk' } />} />              
+                
                 <Route path='frymburk' element = { <NavBarDavis /> } >
                     <Route path='' element={<Navigate replace to='week' />} />
                     <Route path='week' element = { <DavisGraphsDay /> } />
@@ -59,5 +60,5 @@ export const App = () => {
       </div>
       <Bottom/>
     </div>
-  );
+  )
 }

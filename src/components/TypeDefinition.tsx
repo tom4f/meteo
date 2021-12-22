@@ -116,3 +116,5 @@ export type GraphsProviderType = {
     children: ReactElement,
     graphsData: graphDataType[]
 }
+
+export type CustomNavLinkType = ( { to, header } : { to: string, header: string } ) => JSX.Element

@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { DateContext } from './DateContext';
 import { apiPath } from './apiPath'
+import TableStyle from './../css/Table.module.scss'
 
 export const ShowDayTable = () => {
 
@@ -67,7 +68,7 @@ export const ShowDayTable = () => {
         davis.forEach( (one, index) => {
             output.push( 
                 <tr key={index}>
-                     <td className="link" onClick={ (e) => setDay(e) }>{one.date}</td> 
+                     <td className={ TableStyle.link } onClick={ (e) => setDay(e) }>{one.date}</td> 
                     {/*<td className="link" >{one.date}</td>*/}
         
                     <td style={ rgbCss(0, 255, 0, one.wind3                 /1285 ) }>{one.wind3}</td>
@@ -115,7 +116,7 @@ export const ShowDayTable = () => {
                 <button onClick={ () => start - limit >= 0 ? setStart( start - limit ) : null } > &nbsp; {'>'} &nbsp; </button>
                 &nbsp; dní
             </header>
-                <section className="davisTable">
+                <section className={ TableStyle.davisTable }>
                     <table>
                         <thead>
                             <tr>

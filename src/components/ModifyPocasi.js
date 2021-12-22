@@ -5,9 +5,9 @@ import { EditPocasi }       from './EditPocasi';
 import { AddPocasi }        from './AddPocasi';
 import { DeletePocasi }     from './DeletePocasi';
 import { addQuerySelector } from './AddQuerySelector'
+import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
 
 import '../css/formular.css';
-import '../css/modifyPocasi.css';
 
 export const ModifyPocasi = () => {
     // last 30 meteo lines
@@ -37,7 +37,7 @@ export const ModifyPocasi = () => {
     
     return (
         <>
-            <div className="editPocasi">
+            <div className={ ModifyPocasiStyle.editPocasi }>
                 { webToken === 'error' ?
                     <ShowLogin
                         user={user} setUser={setUser}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { apiPath } from './apiPath'
 
 export const EditPocasi = ({ 
