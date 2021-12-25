@@ -1,5 +1,7 @@
-import React, { useState }    from 'react';
+import { useState }    from 'react';
 import { apiPath } from './apiPath'
+import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
+import FormularStyle    from './../css/Formular.module.scss'
 
 export const DeletePocasi = ({ 
         editMeteo,
@@ -53,14 +55,14 @@ export const DeletePocasi = ({
     }
 
     return (
-        <div className="delete-container">
-          <div className="close-btn" onClick={ () => setEditMeteo( { ...editMeteo, dispDelete : false } ) }><span>x</span></div>
+        <div className={ ModifyPocasiStyle.container }>
+          <div className={ ModifyPocasiStyle.closeBtn } onClick={ () => setEditMeteo( { ...editMeteo, dispDelete : false } ) }><span>x</span></div>
           { loginResp==='error' ? <div> Někde nastala chyba - { loginResp } :-(</div> : null }
           <h4>Mažete datum {editDate} </h4>
           <form onSubmit={ (e) => deleteMySQL(e) } autoComplete="off" id="delete_form_pocasi">
-              <div className="form_booking edit_booking">
+              <div className={ FormularStyle.form_booking  }>
                   <input type="hidden" name="datum" value={editDate} />
-                  <div className="submit_booking edit_input_booking">
+                  <div className={ FormularStyle.submit_booking }>
                       <input type="submit" name="odesli" value="Opravdu smazat?" />
                   </div>
               </div>

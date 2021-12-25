@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.container, .login-container, .edit-container, .add-container, .delete-container {
+.container, .login-container, .edit-container, .add-container, .deleteContainer {
     position: absolute;
     width: 90%;
     max-width: 600px;
@@ -13,7 +13,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.close-btn {
+.closeBtn {
     text-align: right;
     margin-right: 10px;
     span {
@@ -29,7 +29,6 @@
         color: white;
         font-weight: bold;
         background-color: red;
-
 }
 
 

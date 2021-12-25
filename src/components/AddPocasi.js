@@ -1,6 +1,7 @@
 import { useState }          from 'react';
 import { apiPath } from './apiPath'
 import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
+import FormularStyle    from './../css/Formular.module.scss'
 
 export const AddPocasi = ({
         pocasi,
@@ -81,41 +82,41 @@ export const AddPocasi = ({
     return (
         <>
         <div className={ModifyPocasiStyle.container }>
-          <div className="close-btn" onClick={ () => setEditMeteo( { ...editMeteo, dispAdd : false } ) } ><span>x</span></div>
+          <div className={ ModifyPocasiStyle.closeBtn } onClick={ () => setEditMeteo( { ...editMeteo, dispAdd : false } ) } ><span>x</span></div>
           { loginResp==='error' ? <div> Někde nastala chyba :-(</div> : null }
           <h4>Nový záznam  </h4>
           <form onSubmit={ e => insert(e) }  autoComplete="off" id="edit_form_pocasi" name="edit_form_pocasi">
-              <div className="form_booking add_booking">
-                  <div className="input_booking">
+              <div className={ FormularStyle.form_booking} >
+                  <div className={ FormularStyle.input_booking}>
                       <label>datum:</label><br />
                       <input type="text" name="datum" value={ newValues.datum } onChange={ (e) => set(e)}  />
                   </div>
-                  <div className="input_booking">
+                  <div className={ FormularStyle.input_booking}>
                       <label>voda:</label><br />
                       <input type="text" name="voda" value={newValues.voda} onChange={ (e) => set(e) } />
                   </div>
-                  <div className="input_booking">
+                  <div className={ FormularStyle.input_booking}>
                       <label>vzduch:</label><br />
                       <input type="text" name="vzduch" value={newValues.vzduch} onChange={ (e) => set(e) } />
                   </div>
-                  <div className="input_booking">
+                  <div className={ FormularStyle.input_booking}>
                       <label>hladina:</label><br />
                       <input type="text" name="hladina" value={newValues.hladina} onChange={ (e) => set(e) } />
                   </div>
-                  <div className="input_booking">
+                  <div className={ FormularStyle.input_booking}>
                       <label>přítok:</label><br />
                       <input type="text" name="pritok" value={newValues.pritok} onChange={ (e) => set(e) } />
                   </div>
-                  <div className="input_booking">
+                  <div className={ FormularStyle.input_booking}>
                       <label>odtok:</label><br />
                       <input type="text" name="odtok" value={newValues.odtok} onChange={ (e) => set(e) } />
                   </div>
-                  <div className="input_booking">
+                  <div className={ FormularStyle.input_booking}>
                       <label>komentář:</label><br />
                       <input type="text" name="pocasi" value={newValues.pocasi} onChange={ (e) => set(e) } />
                   </div>
 
-                  <div className="submit_booking">
+                  <div className={ FormularStyle.submit_booking}>
                       <input type="submit" name="odesli" value="Odeslat" />
                   </div>
               </div>

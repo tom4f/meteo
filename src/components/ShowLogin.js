@@ -1,5 +1,7 @@
-import React, { useState }  from 'react';
+import { useState }  from 'react';
 import { apiPath } from './apiPath'
+import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
+import FormularStyle    from './../css/Formular.module.scss'
 
 export const ShowLogin = ({
     user, setUser, password, setPassword, setWebToken, 
@@ -42,19 +44,19 @@ export const ShowLogin = ({
     }
 
     return (
-        <div className="login-container">
+        <div className={ ModifyPocasiStyle.container }>
             { loginResp==='error' ? <div> Někde nastala chyba :-(</div> : null }
             <form onSubmit={ (e) => loginGetToken(e) }>
-                <div className="form_booking">
-                    <div className="input_booking">
+                <div className={ FormularStyle.form_booking }>
+                    <div className={ FormularStyle.input_booking}>
                         <label>Uživatel :</label><br />
                         <input name="user" onChange={ (e) => setUser(e.target.value) } value={user} type="text" placeholder="zadejte uživatele" size="10" minLength="5" required />
                     </div>
-                    <div className="input_booking">
+                    <div className={ FormularStyle.input_booking}>
                         <label>Heslo :</label><br />    
                         <input name="password" onChange={ (e) => setPassword(e.target.value) } value={password} type="password" placeholder="zadejte heslo" size="10"  minLength="5" required />
                     </div>
-                    <div className="submit_booking">
+                    <div className={ FormularStyle.submit_booking }>
                         <input type="submit" value="Odeslat" />
                     </div>
                 </div>

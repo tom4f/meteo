@@ -1,0 +1,14 @@
+git clone https://github.com/tom4f/meteo.git --branch main
+
+& "e:\Program Files\Git\bin\sh.exe" --login
+
+PS E:\xampp\htdocs\projects\05_meteo> git branch
+* main
+PS E:\xampp\htdocs\projects\05_meteo> git branch -r
+  origin/HEAD -> origin/master
+  origin/main
+  origin/master
+
+// reset local changes and load all from remotwe
+git reset --hard
+git pull origin main

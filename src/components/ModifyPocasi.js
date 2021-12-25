@@ -6,8 +6,9 @@ import { AddPocasi }        from './AddPocasi';
 import { DeletePocasi }     from './DeletePocasi';
 import { addQuerySelector } from './AddQuerySelector'
 import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
+import FormularStyle        from './../css/Formular.module.scss'
 
-import '../css/formular.css';
+//import '../css/formular.css';
 
 export const ModifyPocasi = () => {
     // last 30 meteo lines
@@ -67,8 +68,8 @@ export const ModifyPocasi = () => {
                     /> : null }
                 
                 { webToken !== 'error' ?
-                    <div className="form_booking">
-                        <div className="submit_booking">
+                    <div className={ FormularStyle.form_booking}>
+                        <div className={ FormularStyle.submit_booking}>
                             <input type="submit" onClick={ () => setEditMeteo( 
                                 { 
                                     ...editMeteo,

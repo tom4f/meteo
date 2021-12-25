@@ -12,12 +12,10 @@ import { OldGraphs }               from './components/OldGraphs';
 import { ShowOldStationTable }     from './components/ShowOldStationTable';
 import { ShowDayGraph }            from './components/ShowDayGraph';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import AppStyles                   from './css/App.module.scss'
+import { editStatus }              from './components/apiPath';
 import { NavBar, NavBarDavis,
   NavBarLipno, NavBarOldStation }  from './components/NavBar';
-import AppStyles from './css/App.module.scss'
-import { editStatus } from './components/apiPath';
-
-import './css/meteo.css';
 
 export const App = () => {
   return (
@@ -27,7 +25,7 @@ export const App = () => {
         <NavBar />
         <DateProvider>
             <Routes>
-                <Route path='*' element={<Navigate replace to={ editStatus ? 'lipno/edit' : 'frymburk' } />} />              
+                <Route path='*' element={<Navigate replace to={ editStatus ? 'lipno/edit' : 'frymburk' } />} />
                 
                 <Route path='frymburk' element = { <NavBarDavis /> } >
                     <Route path='' element={<Navigate replace to='week' />} />
@@ -54,6 +52,7 @@ export const App = () => {
                     <Route path='graphs' element = { <OldGraphs /> } />
                     <Route path='table' element = { <ShowOldStationTable /> } />
                 </Route>
+                
               </Routes>
 
         </DateProvider>

@@ -1,0 +1,119 @@
+.form_booking{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	width: 100%;
+    padding: 0px;
+    color: white;
+	text-align: left;
+	margin: auto;
+	border-radius: 5px;
+	border: 1px solid #555;
+	margin-top: 0rem;
+	margin-bottom: 0rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	position: relative;
+
+    input,
+    select,
+    textarea {
+        font-size: 1.0rem;;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        margin: 2px 5px;
+        transition: none;
+        color: white;
+        letter-spacing: 0.1rem;
+    }
+
+    input[type=text]:focus,
+    input[type=email]:focus,
+    input[type=tel]:focus,
+    input[type=date]:focus,
+    input[type=hi]:focus,
+    textarea:focus,
+    select:focus {
+        border: none;
+        outline: none;
+    }
+}
+
+.input_booking{
+	background-color:rgba(0, 0, 0, 0.4);
+	width: 45%;
+	border-radius: 5px;
+	border: 1px solid white;
+	padding: 2px;
+	margin: 5px;
+    label{
+        font-size: 0.7rem;
+        color: white;
+        font-weight: bold;
+        text-align: left;
+        margin: 2px 5px;
+    }
+    &:hover{
+        border: 1px solid black;
+    }
+    option{
+        background-color:rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="date"] {
+    display:block;
+  
+    /* Solution 1 */
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    min-height: 1.2em; 
+  
+    /* Solution 2 */
+	/* min-width: 96%; */
+    }
+}
+
+
+
+
+
+
+
+/* Original Solution found on Stackoverflow here:
+http://stackoverflow.com/questions/26573346/ios-safari-messes-up-input-type-date
+*/
+
+
+
+/* <div class="submit_booking"> */
+.submit_booking{
+	border-radius: 5px;
+	border: 1px solid white;
+	padding: 0;
+	margin: 5px;
+	text-align: left;
+	background-color:rgba(0, 256, 0, 0.4);
+	width: 40%;
+    &:hover{
+        border: 1px solid black;
+    }
+    input{
+        background-color:rgba(0, 256, 0, 0.4);
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        border: none;
+        font-size: 1rem;
+        border-radius: 5px;
+        &:focus{
+            background-color:rgba(0, 256, 0, 0.5);
+        }
+    }
+}
+
+
+
+
+

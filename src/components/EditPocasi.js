@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { apiPath } from './apiPath'
+import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
+import FormularStyle    from './../css/Formular.module.scss'
 
 export const EditPocasi = ({ 
         editMeteo,
@@ -59,19 +61,19 @@ export const EditPocasi = ({
 
 
     return (
-        <div className="edit-container">
-          <div className="close-btn" onClick={ () => setEditMeteo( { ...editMeteo, dispEdit : false } ) }><span>x</span></div>
+        <div className={ ModifyPocasiStyle.container }>
+          <div className={ ModifyPocasiStyle.closeBtn } onClick={ () => setEditMeteo( { ...editMeteo, dispEdit : false } ) }><span>x</span></div>
           { loginResp==='error' ? <div> Někde nastala chyba :-(</div> : null }
           <h4>Upravujete datum {editDate} </h4>
           <form onSubmit={ (e) => updateMySQL(e) } autoComplete="off" id="edit_form_pocasi" name="edit_form_pocasi">
-              <div className="form_booking edit_booking">
+              <div className={ FormularStyle.form_booking }>
                   <input type="hidden" name="datum" value={editDate} />
-                  <div className="input_booking edit_input_booking">
+                  <div className={ FormularStyle.input_booking }>
                       <label>{editKey} :</label><br />
                       <input type="hidden" name="key" value={editKey} />
                       <input type="text" name="value" onChange={ (e) => setEditMeteo( { ...editMeteo, editDate, editKey, editValue : e.target.value } ) } value={editValue} />
                   </div>
-                  <div className="submit_booking edit_input_booking">
+                  <div className={ FormularStyle.submit_booking }>
                       <input type="submit" name="odesli" value="Odeslat" />
                   </div>
               </div>
