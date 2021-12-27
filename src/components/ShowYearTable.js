@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { DateContext } from './DateContext';
-import { apiPath } from './apiPath'
+import { apiPath } from '../api/apiPath'
 import TableStyle from './../css/Table.module.scss'
 
 export const ShowYearTable = ({

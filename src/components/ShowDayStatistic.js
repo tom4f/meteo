@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext} from 'react';
 import { DateContext } from './DateContext';
 import { ChangeDate } from './ChangeDate';
-import { commonPath } from './apiPath'
+import { commonPath } from '../api/apiPath'
+import StatisticStyle from './../css/Statistic.module.scss'
 
 export const ShowDayStatistic = ( ) => {
 
     const { date : { davisStat }, globalDate } = useContext(DateContext);
-
+    
     const [davisText, setDavisText]         = useState('');
     const [davisYearText, setDavisYearText] = useState('');
 
@@ -50,16 +51,16 @@ export const ShowDayStatistic = ( ) => {
                 <button onClick ={ () => globalDate('davisStat', ChangeDate('davisStat', davisStat, 'year', +1) ) } > &nbsp; {'>'} &nbsp; </button>  
             </header>
 
-            <article className="davisMonth">
-                <section className="myPre">{davisText}</section>
+            <article className={ StatisticStyle.davisMonth }>
+                <section className={ StatisticStyle.myPre }>{davisText}</section>
             </article>
 
             <header className="header">
                 Roční statistiky - rok { year }
             </header>
             
-            <article className="davisMonth">
-                <section className="myPre">{davisYearText}</section>
+            <article className={ StatisticStyle.davisMonth }>
+                <section className={ StatisticStyle.myPre }>{davisYearText}</section>
             </article>
         </>
     )

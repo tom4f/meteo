@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { DateContext }       from './DateContext';
 // change Date logic
 import { ChangeDate }        from './ChangeDate';
-import { commonPath } from './apiPath'
+import { commonPath } from '../api/apiPath'
 
 export const ShowDayGraph = () => {
 

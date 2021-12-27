@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { apiPath } from './apiPath'
+import { apiPath } from '../api/apiPath'
 import Draw from './Draw';
 
 

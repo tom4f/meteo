@@ -13,7 +13,7 @@ import { ShowOldStationTable }     from './components/ShowOldStationTable';
 import { ShowDayGraph }            from './components/ShowDayGraph';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import AppStyles                   from './css/App.module.scss'
-import { editStatus }              from './components/apiPath';
+import { editStatus }              from './api/apiPath';
 import { NavBar, NavBarDavis,
   NavBarLipno, NavBarOldStation }  from './components/NavBar';
 

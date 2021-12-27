@@ -1,4 +1,4 @@
-import { apiPath } from './../components/apiPath'
+import { apiPath } from './apiPath'
 import { loadDataFunctionType } from '../components/TypeDefinition'
 
 export const loadPocasiAsync: loadDataFunctionType = async (start, end, index, graphsConfig ) => {
