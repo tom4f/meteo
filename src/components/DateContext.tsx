@@ -1,33 +1,39 @@
 import { createContext, useReducer } from 'react';
+import { dateType, reducerActionType } from './TypeDefinition';
 
-export const DateContext = createContext(null);
+const defaultDate: dateType = {
+    daily       : new Date(),
+    yearSum     : new Date(),
+    davisStat   : new Date(),
+    oldStation  : new Date(2012,1,1)
+}
 
-export const DateProvider = ( { children } ) => {
+const dummyFunc = (param: string, value: Date) => {}
+
+export const DateContext = createContext( { date: defaultDate, globalDate: dummyFunc });
+
+export const DateProvider = ( { children }: { children: React.ReactNode } ) => {
 
     class Store {
         static getDateFromStorage() {
-            let myDate;
-            if (localStorage.getItem('myDate') === null) {
-                myDate =  {
-                    daily       : new Date(),
-                    yearSum     : new Date(),
-                    davisStat   : new Date(),
-                    oldStation  : new Date(2012,1,1)
-                }
-            } else {
-                const { daily, yearSum, davisStat, oldStation } = JSON.parse(localStorage.getItem('myDate'));
-                myDate =  {
+                      
+            const localStore = localStorage.getItem('myDate')
+
+            if (localStore !== null) {
+                const { daily, yearSum, davisStat, oldStation } = JSON.parse(localStore);
+                return  {
                     daily       : new Date(daily),
                     yearSum     : new Date(yearSum),
                     davisStat   : new Date(davisStat),
                     oldStation  : new Date(oldStation)
                 }
             }
-            return myDate;
+                        
+            return defaultDate;
         } 
     }
 
-    const reducerFunc = (oldDate, action) => {
+    const reducerFunc = (oldDate: dateType, action: reducerActionType) => {
         switch(action.type) {
             case 'UPDATE_DATE':
                 const newDate = {
@@ -42,7 +48,7 @@ export const DateProvider = ( { children } ) => {
     }
     const [ date, dispatch ] = useReducer( reducerFunc, Store.getDateFromStorage() );
 
-    const globalDate = ( param, value ) => dispatch( {
+    const globalDate = ( param: string, value: Date ) => dispatch( {
                 type: 'UPDATE_DATE',
                 payload : { param, value }
             })

@@ -118,3 +118,25 @@ export type GraphsProviderType = {
 }
 
 export type CustomNavLinkType = ( { to, header } : { to: string, header: string } ) => JSX.Element
+
+
+export type dateType = {
+    [key in 'daily' | 'yearSum' | 'davisStat' | 'oldStation' ]:  Date;
+}
+
+
+
+export type reducerActionType = {
+    type: string;
+    payload: {
+        param: string;
+        value: Date;
+    }
+}
+
+export type globalDateType = (param: string, value: Date) => void
+
+export type providerType = {
+    date: dateType;
+    globalDate: globalDateType;
+}
