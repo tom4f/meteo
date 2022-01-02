@@ -295,7 +295,7 @@ export default class Draw implements isAllDownloaded {
         if (this.isAllDownloaded === false && this.loadPocasi) {
             try { 
                 const dummy = await this.loadPocasi('1999-01-01', '2099-01-01', this.graphData.common.index) as graphDataType[];
-                console.log(dummy)
+                //console.log(dummy)
                 this.dataOrig = dummy[0].data
                 this.isAllDownloaded = true;
             }
@@ -488,7 +488,7 @@ export default class Draw implements isAllDownloaded {
         let firstDate = 0;
         let lastDate = 0;
         let step = 1;
-        let sliceText;
+        //let sliceText;
         let lineDate = '';
         let sliceStartStop: number[] = []
 
@@ -502,7 +502,7 @@ export default class Draw implements isAllDownloaded {
             lastDate = new Date( this.end.slice(0,10) ).getTime();
             step = this.MILISECONDS_FOR_ONE_DAY;
             sliceStartStop = [ -2 ]
-            sliceText = ( lineDate: string ) => lineDate.slice( -2 );
+            //sliceText = ( lineDate: string ) => lineDate.slice( -2 );
         }
 
         // year step
@@ -511,7 +511,7 @@ export default class Draw implements isAllDownloaded {
             lastDate  = new Date( this.end   ).getFullYear();
             step = 1;
             sliceStartStop = [ 0, 4 ]
-            sliceText = ( lineDate: string ) => lineDate.slice( 0, 4 );
+            //sliceText = ( lineDate: string ) => lineDate.slice( 0, 4 );
         }
 
 

@@ -140,3 +140,28 @@ export type providerType = {
     date: dateType;
     globalDate: globalDateType;
 }
+
+export type davisType = {
+    wind3: number;
+    wind6: number;
+    wind9: number;
+    wind_speed_avg: number;
+    wind_speed_high: number;
+    dir: number;
+
+    temp_low: number;
+    temp_mean: number;
+    temp_high: number;
+
+    rain: number;
+    rain_rate_max: number;
+
+    bar_min: number;
+    bar_avg: number;
+    bar_max: number;
+
+    huminidy_min: number;
+    huminidy_avg: number;
+    huminidy_max : number;
+    date: string;
+}

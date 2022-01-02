@@ -3,13 +3,10 @@ import { DateContext } from './DateContext';
 import { ChangeDate } from './ChangeDate';
 import { commonPath } from '../api/apiPath'
 import StatisticStyle from './../css/Statistic.module.scss'
-import { providerType } from './TypeDefinition';
 
 export const ShowDayStatistic = () => {
 
-    const props: providerType = useContext(DateContext);
-
-    const { date : { davisStat }, globalDate } = props
+    const { date : { davisStat }, globalDate } = useContext(DateContext);
     
     const [davisText, setDavisText] = useState({
         month: '',
@@ -36,7 +33,7 @@ export const ShowDayStatistic = () => {
         })
     }
 
-    useEffect( setDavis, [ year, month ]);
+    useEffect( () => setDavis() , [ year, month ]);
 
     const setDate = ( period: string, step: 1 | -1 ) => {
         globalDate('davisStat', ChangeDate('davisStat', davisStat, period, step) )
@@ -44,7 +41,7 @@ export const ShowDayStatistic = () => {
     
     return (
         <>
-            <header className={ "header " + StatisticStyle.button }>
+            <header className="header">
                 Rok / měsíc :
                 <button onClick={ () => setDate( 'month', -1) } > {'<'} </button>
                 { month }

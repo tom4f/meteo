@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/index.css';
+import './css/index.scss';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
@@ -10,7 +10,7 @@ const lastIndexSlash = path.lastIndexOf('/')
 const cutLastPart = (path.substring(0, lastIndexSlash))
 
 const isLipnonet = cutLastPart.search('lipnonet') !== -1
-console.log(isLipnonet)
+//console.log(isLipnonet)
 const origPathWithoutLipnonet = isLipnonet ? cutLastPart.replace('/lipnonet', '') : cutLastPart
 
 let replace: string
@@ -20,8 +20,8 @@ replace = replace.replace('/oldStation', '')
 
 replace = isLipnonet ? '/lipnonet' + replace : replace
 
-console.log(window.location.origin)
-console.log(path + ' -> ' + cutLastPart  + ' -> ' + replace)
+//console.log(window.location.origin)
+//console.log(path + ' -> ' + cutLastPart  + ' -> ' + replace)
 
 
 ReactDOM.render(
