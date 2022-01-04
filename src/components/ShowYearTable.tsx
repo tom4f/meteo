@@ -1,14 +1,16 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { DateContext } from './DateContext';
 import { apiPath } from '../api/apiPath'
 import TableStyle from './../css/Table.module.scss'
+import { showYearTableType, rgbCssType } from './TypeDefinition';
 
 export const ShowYearTable = ({
     pocasi, setPocasi,
-    editMeteo : { refresh } = 0,
+    editMeteo,
     user = 'no-user',
-    webToken = 'error' }) => {
+    webToken = 'error' }: showYearTableType) => {
 
+    const refresh = editMeteo?.refresh ?? 0
     const { globalDate } = useContext(DateContext);
 
     const [ orderBy, setOrderBy ] = useState (
@@ -20,11 +22,10 @@ export const ShowYearTable = ({
     
     const limit = 30;
     
-    // which lines requested from mySQL
     const [ start,  setStart ]  = useState(0);
-    useEffect( () => loadPocasi(), [ start, orderBy, refresh ]);
 
-    const loadPocasi = () => {
+
+    const loadPocasi = (start: number, orderBy: { value: string; order: string }) => {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', `${apiPath}/pdo_read_pocasi.php`, true);
         xhr.setRequestHeader('Content-type', 'application/json');
@@ -51,18 +52,22 @@ export const ShowYearTable = ({
         ));
     }
 
-    const rgbCss = (r, g, b, value) => { return { background: `rgba(${r}, ${g}, ${b}, ${value})` } };  
-    const rgbCssT = (value) => { 
+    const loadPocasiRef = useRef( loadPocasi )
+
+    useEffect( () => loadPocasiRef.current(start, orderBy), [ start, orderBy, refresh ]);
+
+    const rgbCss: rgbCssType = (r, g, b, value) => { return { background: `rgba(${r}, ${g}, ${b}, ${value})` } };  
+    const rgbCssT = (value: number) => { 
         return value > 0
             ? { background: `rgba(255, 0, 0, ${ value/35})` }
             : { background: `rgba(0, 0, 255, ${-value/25})` }
     };
 
     const printPocasi = () => {
-        const output = [];
-        pocasi.forEach( (one, index)  => output.push( 
+        const output: JSX.Element[] = [];
+        pocasi?.forEach( (one, index)  => output.push( 
             <tr key={index}>
-                <td className={ webToken !== 'error' ? TableStyle.datum : null }>{one.datum}</td>
+                <td className={ webToken !== 'error' ? TableStyle.datum : '' }>{one.datum}</td>
                 <td style={ rgbCss(255, 0, 0, 1 - (725 - one.hladina)       /2 ) }>{one.hladina}</td>
                 <td style={ rgbCss(0, 255, 0, one.pritok                    /100 ) }>{one.pritok}</td>
                 <td style={ rgbCss(0, 255, 0, one.odtok                     /100 ) }>{one.odtok}</td>
@@ -74,8 +79,8 @@ export const ShowYearTable = ({
         return output;
     }
 
-    const sort = (e) => {
-        const clickedName = e.target.name;
+    const sort = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const clickedName = (e.target as HTMLButtonElement).name;
         setOrderBy({
             value : clickedName,
             order : orderBy.order === 'DESC' ? 'ASC' : 'DESC'
@@ -87,7 +92,7 @@ export const ShowYearTable = ({
             { webToken !== 'error' ? <header className="header">Přihlášený uživatel: {user}</header> : null }
             <header className="header" >
                 Historie : &nbsp; 
-                <button onClick={ () => pocasi.length === limit ? setStart( start + limit ) : null  } > &nbsp; {'<'} &nbsp; </button>
+                <button onClick={ () => pocasi?.length === limit ? setStart( start + limit ) : null  } > &nbsp; {'<'} &nbsp; </button>
                 &nbsp; {start} &nbsp;
                 <button onClick={ () => start - limit >= 0 ? setStart( start - limit ) : null  } > &nbsp; {'>'} &nbsp; </button>
                 &nbsp; dní
@@ -97,8 +102,8 @@ export const ShowYearTable = ({
                     <thead>
                         <tr>
                             <th></th>
-                            <th colSpan="3">vodní nádrž Lipno [00:00 hod]</th>
-                            <th colSpan="3">[7:00 hod]</th>
+                            <th colSpan={3}>vodní nádrž Lipno [00:00 hod]</th>
+                            <th colSpan={3}>[7:00 hod]</th>
                         </tr>
                         <tr>
                             <th><button name="datum" onClick={ (e) => sort(e) } >datum</button></th>

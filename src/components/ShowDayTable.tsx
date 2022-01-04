@@ -8,7 +8,7 @@ export const ShowDayTable = () => {
 
     const { globalDate } = useContext(DateContext);
 
-    const ref = useRef( globalDate )
+    const globalDateRef = useRef( globalDate )
 
     const [ start  , setStart   ] = useState(0);
     const [ orderBy, setOrderBy ] = useState(
@@ -34,7 +34,8 @@ export const ShowDayTable = () => {
                         setDavis(pdoResp);
                         const [ year, month, day ] = pdoResp[0].date.split('-');
                         const clickedDate = new Date( +year, +month - 1, +day );
-                       ref.current('daily', clickedDate )
+                        console.log(globalDateRef)
+                        globalDateRef.current('daily', clickedDate )
                     }
                 }
             }

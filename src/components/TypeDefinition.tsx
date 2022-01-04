@@ -165,3 +165,31 @@ export type davisType = {
     huminidy_max : number;
     date: string;
 }
+
+export type pocasiType = {
+    datum: string;
+    cas: number;
+    hladina: number;
+    pritok: number;
+    odtok: number;
+    voda: number;
+    vzduch: number;
+    pocasi: number;
+}
+
+export type setPocasiType = 
+    React.Dispatch<React.SetStateAction<pocasiType[] | undefined>>
+
+
+export type showYearTableType = {
+    pocasi: pocasiType[] | undefined ;
+    setPocasi: setPocasiType;
+    editMeteo?: any;
+    user?: string;
+    order?: string;
+    webToken?: string;
+}
+
+export type rgbCssType = (r: number, g: number, b: number, value: number) => ({
+     background: string
+})
