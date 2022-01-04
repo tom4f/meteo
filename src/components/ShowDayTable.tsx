@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext, useCallback} from 'react';
+import {useState, useEffect, useContext, useRef} from 'react';
 import { DateContext } from './DateContext';
 import { apiPath } from '../api/apiPath'
 import TableStyle from './../css/Table.module.scss'
@@ -8,7 +8,10 @@ export const ShowDayTable = () => {
 
     const { globalDate } = useContext(DateContext);
 
-    const [ orderBy, setOrderBy ] = useState (
+    const ref = useRef( globalDate )
+
+    const [ start  , setStart   ] = useState(0);
+    const [ orderBy, setOrderBy ] = useState(
         {
             value : 'date',
             order : 'DESC'
@@ -17,17 +20,9 @@ export const ShowDayTable = () => {
 
     const limit = 30;
 
-    // which lines requested from mySQL
-    const [ start, setStart ] = useState(0);
     const [ davis, setDavis ] = useState<davisType[]>();
 
-    const myGlobalDate = useCallback(
-        (clickedDate: Date) => globalDate('daily', clickedDate )
-        , [globalDate]
-    )
-
     useEffect( () => {
-    
         const loadDavis = (start: number, orderBy: { value: string, order: string }) => {
             let xhr = new XMLHttpRequest();
             xhr.open('POST', `${apiPath}/pdo_read_davis.php`, true);
@@ -39,7 +34,7 @@ export const ShowDayTable = () => {
                         setDavis(pdoResp);
                         const [ year, month, day ] = pdoResp[0].date.split('-');
                         const clickedDate = new Date( +year, +month - 1, +day );
-                        myGlobalDate( clickedDate );
+                       ref.current('daily', clickedDate )
                     }
                 }
             }
@@ -56,7 +51,7 @@ export const ShowDayTable = () => {
         
         loadDavis(start, orderBy)
     
-    }, [ start, orderBy, myGlobalDate ] );
+    }, [ start, orderBy] );
 
 
     const rgbCss = (r: number, g: number, b: number, value:number) => ({ background: `rgba(${r}, ${g}, ${b}, ${value})` });  

@@ -15,7 +15,7 @@ export const ShowDayGraph = () => {
     const monthString = month < 10 ? `0${month}` : `${month}`;
     const dayString = day < 10 ? `0${day}` : `${day}`;
 
-    const imgUrl = ( type: string ) => `${commonPath}/davis/archive/${year}/${type}-${year}-${monthString}-${day}.gif`;
+    const imgUrl = ( type: string ) => `${commonPath}/davis/archive/${year}/${type}-${year}-${monthString}-${dayString}.gif`;
     const imgBig = `${commonPath}/rekreace/aktuality_big_graph.php?width_graph=1480&year=${year}&id=${year}-${monthString}-${day}`;
 
     const setDate = ( period: string, step: 1 | -1 ) => {
@@ -27,7 +27,7 @@ export const ShowDayGraph = () => {
             <header id="detail_graphs" className="header">
                 Den . měsíc . rok :
                 <button onClick={ () => setDate( 'day', -1) } >  {'<'}  </button>
-                { day }
+                { dayString }
                 <button onClick={ () => setDate( 'day', +1) } >  {'>'}  </button>  
                 .
                 <button onClick={ () => setDate( 'month', -1) } >  {'<'}  </button>
