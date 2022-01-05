@@ -16,24 +16,25 @@ export const ShowDayStatistic = () => {
     const year  = davisStat.getFullYear();
     const month = `0${davisStat.getMonth() + 1}`.slice(-2)
 
-    const setDavis: () => void = async () => {
-        const path = `${commonPath}/davis/archive/${year}`
-        const urlList = [
-            `${path}/NOAAMO-${year}-${month}.TXT`,
-            `${path}/NOAAYR-${year}.TXT`
-        ]
-        const fetchList = urlList.map( url => fetch( url ).then( resp => resp.text() )  )
-        const settled = await Promise.allSettled( fetchList )
-        const respFulfilled = settled.map( onePromise =>
-            onePromise.status === 'fulfilled' ? onePromise.value : ''
-        )
-        setDavisText({
-            month: respFulfilled[0],
-            year : respFulfilled[1]
-        })
-    }
-
-    useEffect( () => setDavis() , [ year, month ]);
+    useEffect( () => {
+            const setDavis: () => void = async () => {
+                const path = `${commonPath}/davis/archive/${year}`
+                const urlList = [
+                    `${path}/NOAAMO-${year}-${month}.TXT`,
+                    `${path}/NOAAYR-${year}.TXT`
+                ]
+                const fetchList = urlList.map( url => fetch( url ).then( resp => resp.text() )  )
+                const settled = await Promise.allSettled( fetchList )
+                const respFulfilled = settled.map( onePromise =>
+                    onePromise.status === 'fulfilled' ? onePromise.value : ''
+                )
+                setDavisText({
+                    month: respFulfilled[0],
+                    year : respFulfilled[1]
+                })
+            }
+            setDavis()
+        } , [ year, month ]);
 
     const setDate = ( period: string, step: 1 | -1 ) => {
         globalDate('davisStat', ChangeDate('davisStat', davisStat, period, step) )

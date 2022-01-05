@@ -17,11 +17,11 @@ export const ShowYearGraph = ( ) => {
                 <button onClick ={ () => globalDate('yearSum', ChangeDate('yearSum', yearSum, 'year', +1) ) } > &nbsp; {'>'} &nbsp; </button>  
             </header>
             <article>
-                <img alt="voda"     src={ `./graphs/graph_voda_${year}.gif` } /> 
-                <img alt="hladina"  src={ `./graphs/graph_hladina_${year}.gif` } /> 
-                <img alt="odtok"    src={ `./graphs/graph_odtok_${year}.gif` } /> 
-                <img alt="pritok"   src={ `./graphs/graph_pritok_${year}.gif` } /> 
-                <img alt="vzduch"   src={ `./graphs/graph_vzduch_${year}.gif` } /> 
+                <img alt="voda"     src={ `./../../graphs/graph_voda_${year}.gif` } /> 
+                <img alt="hladina"  src={ `./../../graphs/graph_hladina_${year}.gif` } /> 
+                <img alt="odtok"    src={ `./../../graphs/graph_odtok_${year}.gif` } /> 
+                <img alt="pritok"   src={ `./../../graphs/graph_pritok_${year}.gif` } /> 
+                <img alt="vzduch"   src={ `./../../graphs/graph_vzduch_${year}.gif` } /> 
             </article>
         </>
     )

@@ -16,7 +16,7 @@ export const ShowDayGraph = () => {
     const dayString = day < 10 ? `0${day}` : `${day}`;
 
     const imgUrl = ( type: string ) => `${commonPath}/davis/archive/${year}/${type}-${year}-${monthString}-${dayString}.gif`;
-    const imgBig = `${commonPath}/rekreace/aktuality_big_graph.php?width_graph=1480&year=${year}&id=${year}-${monthString}-${day}`;
+    const imgBig = `${commonPath}/rekreace/aktuality_big_graph.php?width_graph=1480&year=${year}&id=${year}-${monthString}-${dayString}`;
 
     const setDate = ( period: string, step: 1 | -1 ) => {
         globalDate('daily', ChangeDate('daily', daily, period, step) )

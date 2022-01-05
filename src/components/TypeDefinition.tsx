@@ -193,3 +193,22 @@ export type showYearTableType = {
 export type rgbCssType = (r: number, g: number, b: number, value: number) => ({
      background: string
 })
+
+export type oldPocasiType = {
+    wind3: number;
+    wind6: number;
+    wind9: number;
+    wind12: number;
+    windmax: number;
+    direct: number;
+
+    tempmin: number;
+    tempavg: number;
+    tempmax: number;
+
+    rain: number;
+    rain_rate_max: number;
+
+ 
+    date: string;
+}

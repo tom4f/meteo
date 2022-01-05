@@ -11,6 +11,7 @@ import { YearTable }               from './components/YearTable';
 import { OldGraphs }               from './components/OldGraphs';
 import { ShowOldStationTable }     from './components/ShowOldStationTable';
 import { ShowDayGraph }            from './components/ShowDayGraph';
+import { ShowYearGraph }           from './components/ShowYearGraph';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import AppStyles                   from './css/App.module.scss'
 import { editStatus }              from './api/apiPath';
@@ -43,7 +44,12 @@ export const App = () => {
                 <Route path='lipno' element = { <NavBarLipno /> } >
                     <Route path='' element={<Navigate replace to='graphs' />} />
                     <Route path='graphs' element = { <LipnoGraphs /> } />
-                    <Route path='table' element = { <YearTable /> } />
+                    <Route path='table' element = {
+                      <>
+                        <YearTable />
+                        <ShowYearGraph/>
+                      </> 
+                    } />
                     <Route path='edit' element = { <ModifyPocasi /> } />
                 </Route>
 

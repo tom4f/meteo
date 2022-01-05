@@ -5,7 +5,7 @@ export const Bottom = () => {
         <div>
             <div className={ BottomStyle.bottom } >
                 <a href="https://www.toplist.cz/stat/6477" target="_top">
-                    <img src="https://toplist.cz/count.asp?id=6477&logo=bc" border="0" alt="TOPlist" width="88" height="120"/>
+                    <img src="https://toplist.cz/count.asp?id=6477&logo=bc" alt="TOPlist" width="88" height="120"/>
                 </a>
             </div>
             <div className="header">

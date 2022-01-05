@@ -1,7 +1,8 @@
-import {useState, useEffect, useContext} from 'react';
+import {useState, useEffect, useContext, useRef} from 'react';
 import { DateContext } from './DateContext';
 import { apiPath } from '../api/apiPath'
 import TableStyle from './../css/Table.module.scss'
+import { oldPocasiType, rgbCssType } from './TypeDefinition';
 
 export const ShowOldStationTable = () => {
 
@@ -16,10 +17,9 @@ export const ShowOldStationTable = () => {
 
     // which lines requested from mySQL
     const [ start, setStart ] = useState(0);
-    const [ davis, setDavis ] = useState([]);
-    useEffect( () => loadDavis(), [ start, orderBy ] );
+    const [ davis, setDavis ] = useState<oldPocasiType[]>();
 
-    const loadDavis = () => {
+    const loadDavis = (start: number, orderBy: { value: string; order: string }) => {
         let xhr = new XMLHttpRequest();
         xhr.open('POST', `${apiPath}/pdo_read_old_station.php`, true);
         xhr.setRequestHeader('Content-type', 'application/json');
@@ -43,16 +43,20 @@ export const ShowOldStationTable = () => {
         ));
     }
 
-    const rgbCss = (r, g, b, value) => { return { background: `rgba(${r}, ${g}, ${b}, ${value})` } };  
-    const rgbCssT = (value) => { 
+    const loadDavisRef = useRef( loadDavis )
+
+    useEffect( () => loadDavisRef.current(start, orderBy), [ start, orderBy ] );
+
+    const rgbCss: rgbCssType = (r, g, b, value) => { return { background: `rgba(${r}, ${g}, ${b}, ${value})` } };  
+    const rgbCssT = (value: number) => { 
         return value > 0
             ? { background: `rgba(255, 0, 0, ${ value/35})` }
             : { background: `rgba(0, 0, 255, ${-value/25})` }
     };
 
     const printDavis = () => {
-        const output = [];
-        davis.forEach( (one, index) => {
+        const output: JSX.Element[] = [];
+        davis?.forEach( (one, index) => {
             output.push( 
                 <tr key={index}>
                      <td className={ TableStyle.link }>{one.date}</td> 
@@ -75,9 +79,8 @@ export const ShowOldStationTable = () => {
         });
         return output;
     }
-
-    const sort = (e) => {
-        const clickedName = e.target.id;
+    const sort = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const clickedName = (e.target as HTMLButtonElement).name;
         console.log(clickedName);
         setOrderBy({
             value : clickedName,
@@ -101,9 +104,9 @@ export const ShowOldStationTable = () => {
                         <thead>
                             <tr>
                                 <th></th>
-                                <th colSpan="6">vítr</th>
-                                <th colSpan="3">teplota vzduchu</th>
-                                <th colSpan="1">srážky</th>
+                                <th colSpan={6}>vítr</th>
+                                <th colSpan={3}>teplota vzduchu</th>
+                                <th colSpan={1}>srážky</th>
                             </tr>
                             <tr>
                                 <th><button id="date" onClick={ (e) => sort(e) } >datum</button></th>
