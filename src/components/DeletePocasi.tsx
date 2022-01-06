@@ -2,27 +2,28 @@ import { useState }    from 'react';
 import { apiPath } from '../api/apiPath'
 import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
 import FormularStyle    from './../css/Formular.module.scss'
+import { ModifyPocasiType, FDobjectType } from './TypeDefinition';
 
 export const DeletePocasi = ({ 
         editMeteo,
-        editMeteo : { editDate },
         setEditMeteo,
-        webToken, user,
-        editMeteo : { refresh }
-    }) => {
+        webToken, user
+    }: ModifyPocasiType) => {
+
+    const { editDate, refresh } = editMeteo
 
     let fotoGalleryOwner = '_ubytovani';
     const [ loginResp, setLoginResp ] = useState('empty');
 
-    const deleteMySQL = (e) => {
+    const deleteMySQL = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Delete');
-        const form = document.getElementById('delete_form_pocasi');
+        const form = document.getElementById('delete_form_pocasi') as HTMLFormElement;
         const FD = new FormData(form);
         FD.append('fotoGalleryOwner', fotoGalleryOwner);
         FD.append('webToken', webToken);
         FD.append('webUser', user);
-        const FDobject = {};
+        let FDobject: FDobjectType = {};
         FD.forEach( (value, key) => FDobject[key] = value );
         // AJAX
         {

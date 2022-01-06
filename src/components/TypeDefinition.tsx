@@ -1,5 +1,6 @@
 import { ReactElement } from 'react'
 import { ParsedUrlQuery } from 'querystring'
+import { ModifyPocasi } from './ModifyPocasi'
 
 export interface urlQueryType extends ParsedUrlQuery {
     page: string
@@ -211,4 +212,31 @@ export type oldPocasiType = {
 
  
     date: string;
+}
+
+export type editMeteoType = {
+    editDate: string;
+    editKey: string;
+    editValue: string;
+    dispEdit: boolean;
+    dispDelete: boolean;
+    dispAdd: boolean;
+    refresh: number;
+}
+
+export type setEditMeteoType = React.Dispatch<React.SetStateAction<editMeteoType>> 
+
+export type ModifyPocasiType = {
+    editMeteo : editMeteoType;
+    setEditMeteo: setEditMeteoType;
+    webToken: string;
+    user: string;
+}
+
+export type AddPocasiType = ModifyPocasiType & {
+    pocasi: pocasiType[];
+}
+
+export type FDobjectType = {
+    [key: string]:  number | string | File
 }

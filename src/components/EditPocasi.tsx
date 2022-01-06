@@ -2,38 +2,37 @@ import { useState } from 'react';
 import { apiPath } from '../api/apiPath'
 import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
 import FormularStyle    from './../css/Formular.module.scss'
+import { ModifyPocasiType, FDobjectType } from './TypeDefinition';
 
 export const EditPocasi = ({ 
         editMeteo,
-        editMeteo : { editDate },
-        editMeteo : { editKey },
-        editMeteo : { editValue },
-        editMeteo : { refresh },
         setEditMeteo,
         webToken, user
-    }) => {
+    }: ModifyPocasiType) => {
+
+    const { editDate, editKey, editValue, refresh } = editMeteo
 
     let fotoGalleryOwner = '_ubytovani';
     const [ loginResp, setLoginResp ] = useState('empty');
 
-    const updateMySQL = (e) => {
+    const updateMySQL = (e: React.FormEvent<HTMLFormElement>) => {
         // disable page reload-clear after submit
         e.preventDefault();
         // all form data to special object
-        const form = document.querySelector('#edit_form_pocasi');
+        const form = document.querySelector('#edit_form_pocasi') as HTMLFormElement;
         const FD = new FormData(form);
         FD.append('fotoGalleryOwner', fotoGalleryOwner);
         FD.append('webToken', webToken);
         FD.append('webUser', user);
         // real object
-        const FDobject = {};
+        let FDobject: FDobjectType = {};
         // fill form data ojbect
-        FD.forEach( (value, key) => FDobject[key] = value );
+        FD.forEach( (value, key) => FDobject[ key ] = value );
         // AJAX
         {
             let xhr = new XMLHttpRequest();
             xhr.open('POST', `${apiPath}/pdo_update_pocasi.php`, true);
-            xhr.setRequestHeader('Content-type', 'application/json');
+            xhr.setRequestHeader('Content-type', 'applic ation/json');
             xhr.onload = function(){
                 if (this.readyState === 4 && this.status === 200) {
                     const editResult = JSON.parse(this.responseText);

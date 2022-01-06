@@ -2,25 +2,28 @@ import { useState }          from 'react';
 import { apiPath } from '../api/apiPath'
 import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
 import FormularStyle    from './../css/Formular.module.scss'
+import { AddPocasiType } from './TypeDefinition';
 
 export const AddPocasi = ({
         pocasi,
-        editMeteo : { refresh },
-        editMeteo, setEditMeteo,
+        editMeteo,
+        setEditMeteo,
         webToken, user
-    }) => {
+    }: AddPocasiType) => {
+
+        const { refresh } = editMeteo
 
     const { hladina, pritok, odtok, voda, vzduch, pocasi : komentar } = pocasi[0];
    
     let fotoGalleryOwner = '_ubytovani'; 
 
-    const today = ( now ) => {
+    const today = ( now: Date ) => {
         let day = now.getDate();
-        day = day < 10 ? `0${day}` : day; 
+        const dayString = day < 10 ? `0${day}` : day; 
         let month = now.getMonth() + 1;
-        month = month < 10 ? `0${month}` : month;    
+        const monthString = month < 10 ? `0${month}` : month;    
         const year = now.getFullYear();
-        return `${year}-${month}-${day}`;
+        return `${year}-${monthString}-${dayString}`;
     }
 
 
@@ -36,7 +39,7 @@ export const AddPocasi = ({
 
     const [ loginResp, setLoginResp ] = useState('empty');
  
-    const insert = (e) =>{
+    const insert = (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         // AJAX
         let xhr = new XMLHttpRequest();
@@ -68,7 +71,7 @@ export const AddPocasi = ({
 
     }
 
-    const set = (e) =>{
+    const set = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const param = e.target.name;
         const value = e.target.value;
         setNewValues( { ...newValues, [param]: value });

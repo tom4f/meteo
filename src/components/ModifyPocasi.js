@@ -34,25 +34,31 @@ export const ModifyPocasi = () => {
      );
 
     // update table querySelector when 'pocasi' changed
-    useEffect( () => addQuerySelector(pocasi, editMeteo, setEditMeteo, webToken), [ pocasi ]);
+    useEffect( () =>
+        addQuerySelector(pocasi, editMeteo, setEditMeteo, webToken),
+        [ pocasi ]
+    );
     
     return (
         <>
             <div className={ ModifyPocasiStyle.editPocasi }>
-                { webToken === 'error' ?
-                    <ShowLogin
-                        user={user} setUser={setUser}
-                        password={password} setPassword={setPassword}
-                        setWebToken={setWebToken}
-                        editMeteo={editMeteo} setEditMeteo={setEditMeteo}
-                    /> : null  }
-
-                { editMeteo.dispAdd ?
-                    <AddPocasi
-                        pocasi={pocasi}
-                        editMeteo={editMeteo} setEditMeteo={setEditMeteo}
-                        webToken={webToken} user={user}
-                    /> : null }
+                { 
+                    webToken === 'error'
+                        ? <ShowLogin
+                            user={user} setUser={setUser}
+                            password={password} setPassword={setPassword}
+                            setWebToken={setWebToken}
+                            editMeteo={editMeteo} setEditMeteo={setEditMeteo} />
+                        : null
+                }
+                {
+                    editMeteo.dispAdd
+                        ? <AddPocasi
+                            pocasi={pocasi}
+                            editMeteo={editMeteo} setEditMeteo={setEditMeteo}
+                            webToken={webToken} user={user} />
+                        : null
+                }
 
                 { editMeteo.dispEdit ?
                     <EditPocasi
