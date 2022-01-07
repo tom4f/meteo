@@ -1,11 +1,12 @@
-export const addQuerySelector = ( pocasi, editMeteo, setEditMeteo, webToken ) => {
+import { addQuerySelectorType } from "./TypeDefinition";
+
+export const addQuerySelector: addQuerySelectorType = ( pocasi, editMeteo, setEditMeteo, webToken ) => {
     // set 'click' event listener for all table <div>
 
-console.log(pocasi)
-
-    const editTermin = (event) => {
-        const clickedTd = event.target;
-        const childsTd = clickedTd.parentNode.children;
+    const editTermin = (event: MouseEvent) => {
+        const clickedTd = event.target as Element;
+        const childsTd = clickedTd.parentNode?.children;
+        if ( !childsTd)  return null
         // previous <td>
         let prevTd = clickedTd;
         let clicedColumnNr = 0;
@@ -20,15 +21,17 @@ console.log(pocasi)
         const allKeys = [ 'hladina', 'pritok', 'odtok', 'voda', 'vzduch', 'pocasi' ];
         // if column number is not 0 (date column), continue :
         // get clicked week from first column, e.g. 27.06-04.07.2020
-        const clickedDate = childsTd[0].innerText;
+        let clickedDate = ''
+        if (childsTd[0] instanceof HTMLElement) {
+            clickedDate = childsTd[0].innerText;
+        }
+
         // reduce method is not optimal like search, but works
         const clickedRowNr = pocasi.reduce( (total, value, index) => value.datum === clickedDate ? total + index : total, 0 )
         // get edited property (e.g. 'hladina')
-        const editKey = allKeys[clicedColumnNr - 1];
+        const editKey = allKeys[clicedColumnNr - 1] as 'hladina' | 'pritok' | 'odtok' | 'voda' | 'vzduch' | 'pocasi'
         // descructuring 'datum' & 'clicked property'
-        const { datum : editDate, [editKey] : editValue } = pocasi[clickedRowNr];
-
-        console.log(`${editDate}, ${editKey}: ${editValue}`);
+        const { datum: editDate, [editKey]: editValue } = pocasi[clickedRowNr];
 
         if ( clicedColumnNr ) {
             setEditMeteo(
@@ -36,7 +39,7 @@ console.log(pocasi)
                     ...editMeteo,
                     editDate,
                     editKey,
-                    editValue,
+                    editValue: editValue,
                     dispEdit : true,
                     dispDelete : false
                 }

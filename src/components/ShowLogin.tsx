@@ -2,21 +2,24 @@ import { useState }  from 'react';
 import { apiPath } from '../api/apiPath'
 import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
 import FormularStyle    from './../css/Formular.module.scss'
+import { ShowLoginType } from './TypeDefinition';
 
 export const ShowLogin = ({
-    user, setUser, password, setPassword, setWebToken, 
+    user, setUser,
+    password, setPassword,
+    setWebToken, 
     //refresh, setRefresh,
     setEditMeteo,
     editMeteo,
     editMeteo : { refresh }
-}) => {
+}: ShowLoginType) => {
 
    let fotoGalleryOwner = '_ubytovani'; 
    
    const [ loginResp, setLoginResp ] = useState('empty');
     
    // get webToken and webAccess from server
-    const loginGetToken = (event) => {
+    const loginGetToken = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const object = {
             fotoGalleryOwner,
@@ -50,11 +53,11 @@ export const ShowLogin = ({
                 <div className={ FormularStyle.form_booking }>
                     <div className={ FormularStyle.input_booking}>
                         <label>Uživatel :</label><br />
-                        <input name="user" onChange={ (e) => setUser(e.target.value) } value={user} type="text" placeholder="zadejte uživatele" size="10" minLength="5" required />
+                        <input name="user" onChange={ (e) => setUser(e.target.value) } value={user} type="text" placeholder="zadejte uživatele" size={10} minLength={5} required />
                     </div>
                     <div className={ FormularStyle.input_booking}>
                         <label>Heslo :</label><br />    
-                        <input name="password" onChange={ (e) => setPassword(e.target.value) } value={password} type="password" placeholder="zadejte heslo" size="10"  minLength="5" required />
+                        <input name="password" onChange={ (e) => setPassword(e.target.value) } value={password} type="password" placeholder="zadejte heslo" size={10}  minLength={5} required />
                     </div>
                     <div className={ FormularStyle.submit_booking }>
                         <input type="submit" value="Odeslat" />

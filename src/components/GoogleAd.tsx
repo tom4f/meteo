@@ -1,6 +1,14 @@
 import { Component } from 'react'
 
+declare global {
+    interface Window {
+        adsbygoogle:any;
+    }
+}
+
 export default class GoogleAd extends Component {
+
+
 
     componentDidMount () {
         (window.adsbygoogle = window.adsbygoogle || []).push({})

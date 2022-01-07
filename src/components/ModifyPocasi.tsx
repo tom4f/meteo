@@ -1,4 +1,4 @@
-import {useState, useEffect}    from 'react';
+import {useState, useEffect, useRef}    from 'react';
 import { ShowLogin }        from './ShowLogin';
 import { ShowYearTable }    from './ShowYearTable';
 import { EditPocasi }       from './EditPocasi';
@@ -7,18 +7,19 @@ import { DeletePocasi }     from './DeletePocasi';
 import { addQuerySelector } from './AddQuerySelector'
 import ModifyPocasiStyle    from './../css/ModifyPocasi.module.scss'
 import FormularStyle        from './../css/Formular.module.scss'
+import { editMeteoType, pocasiType } from './TypeDefinition';
 
 //import '../css/formular.css';
 
 export const ModifyPocasi = () => {
     // last 30 meteo lines
-    const [ pocasi, setPocasi ] = useState([]);
+    const [ pocasi, setPocasi ] = useState<pocasiType[]>();
     // login data
     const [ user, setUser ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ webToken, setWebToken ] = useState('error');
     // edit params
-    const [ editMeteo, setEditMeteo ] = useState( 
+    const [ editMeteo, setEditMeteo ] = useState<editMeteoType>( 
         {
          // values to be edited
          editDate : '',
@@ -33,10 +34,13 @@ export const ModifyPocasi = () => {
         }
      );
 
+     const editMeteoRef = useRef( editMeteo )
+
     // update table querySelector when 'pocasi' changed
-    useEffect( () =>
-        addQuerySelector(pocasi, editMeteo, setEditMeteo, webToken),
-        [ pocasi ]
+    useEffect( () => {
+            if ( !pocasi ) return
+            addQuerySelector(pocasi, editMeteoRef.current, setEditMeteo, webToken)
+        }, [ pocasi, webToken ]
     );
     
     return (
@@ -52,7 +56,7 @@ export const ModifyPocasi = () => {
                         : null
                 }
                 {
-                    editMeteo.dispAdd
+                    editMeteo.dispAdd && pocasi
                         ? <AddPocasi
                             pocasi={pocasi}
                             editMeteo={editMeteo} setEditMeteo={setEditMeteo}
@@ -60,9 +64,8 @@ export const ModifyPocasi = () => {
                         : null
                 }
 
-                { editMeteo.dispEdit ?
+                { editMeteo.dispEdit && pocasi ?
                     <EditPocasi
-                        pocasi={pocasi}
                         editMeteo={editMeteo} setEditMeteo={setEditMeteo}
                         webToken={webToken} user={user}
                     /> : null }
@@ -91,7 +94,7 @@ export const ModifyPocasi = () => {
             <ShowYearTable
                 pocasi={pocasi} setPocasi={setPocasi}
                 user={user} webToken={webToken}
-                editMeteo={editMeteo} setEditMeteo={setEditMeteo}
+                editMeteo={editMeteo} 
             />
         </>
 

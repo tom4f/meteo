@@ -169,13 +169,13 @@ export type davisType = {
 
 export type pocasiType = {
     datum: string;
-    cas: number;
+    cas: string;
     hladina: number;
     pritok: number;
     odtok: number;
     voda: number;
     vzduch: number;
-    pocasi: number;
+    pocasi: string;
 }
 
 export type setPocasiType = 
@@ -217,7 +217,7 @@ export type oldPocasiType = {
 export type editMeteoType = {
     editDate: string;
     editKey: string;
-    editValue: string;
+    editValue: string | number;
     dispEdit: boolean;
     dispDelete: boolean;
     dispAdd: boolean;
@@ -239,4 +239,25 @@ export type AddPocasiType = ModifyPocasiType & {
 
 export type FDobjectType = {
     [key: string]:  number | string | File
+}
+
+export type addQuerySelectorType = (
+        pocasi: pocasiType[],
+        editMeteo : editMeteoType,
+        setEditMeteo: setEditMeteoType,
+        webToken: string,
+    ) => void
+
+type setUserType = React.Dispatch<React.SetStateAction<string>>
+type setPasswordType = React.Dispatch<React.SetStateAction<string>>
+type setWebTokenType = React.Dispatch<React.SetStateAction<string>> 
+
+export type ShowLoginType = {
+    user: string;
+    setUser: setUserType;
+    password: string;
+    setPassword: setPasswordType;
+    setWebToken: setWebTokenType;
+    editMeteo : editMeteoType;
+    setEditMeteo: setEditMeteoType;
 }
