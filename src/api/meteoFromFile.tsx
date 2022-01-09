@@ -1,5 +1,5 @@
 import { commonPath } from './apiPath'
-import { loadDataFunctionType } from '../components/TypeDefinition'
+import { loadDataFunctionType, pureData } from '../components/TypeDefinition'
 
 export const loadPocasiAsync: loadDataFunctionType = async (start, end, index, graphsConfig ) => {
 
@@ -70,7 +70,7 @@ export const loadPocasiAsync: loadDataFunctionType = async (start, end, index, g
             'N' : 0
        }
 
-        const arrOfObj = mergedArr.reduce( ( accumulator: Array<any>, line, index ) => {
+        const arrOfObj = mergedArr.reduce( ( accumulator: Array<pureData>, line, index ) => {
             
             const arrFromLine = line.trim().split(/ +/g);
 

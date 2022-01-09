@@ -5,7 +5,6 @@
             "index": 0,
             "dateField": "date",
             "isAllDownloaded": false,
-            "loadDataFunction" : null,
             "url": "pdo_read_davis_by_date.php",
             "title": "Meteostanice Frymburk",
             "navName" : "Frymburk"

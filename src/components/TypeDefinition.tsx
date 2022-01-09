@@ -1,6 +1,5 @@
 import { ReactElement } from 'react'
 import { ParsedUrlQuery } from 'querystring'
-import { ModifyPocasi } from './ModifyPocasi'
 
 export interface urlQueryType extends ParsedUrlQuery {
     page: string
@@ -31,22 +30,27 @@ export type specificType = {
     width: number;
     header: string;
     group: number;
-    lineStyle: [];
+    lineStyle: number[];
 }
 
-export type loadDataFunctionCustomType = (startDate?: string, endDate?: string, index?: number ) => Promise<graphDataType[]>
+export type loadDataFunctionCustomType = (startDate?: string, endDate?: string, index?: number ) => Promise<graphDataWithoutFunctionType[]>
 
-export type loadDataFunctionType = (start: string, end: string, index: number, graphsConfig: graphDataType[] ) => Promise<graphDataType[]>
+export type loadDataFunctionType = (start: string, end: string, index: number, graphsConfig: graphDataWithoutFunctionType[] ) => Promise<graphDataWithoutFunctionType[]>
 
-export type commonType = {
+export type commonWithoutFunctionType = {
+    index: number;
     dateField: string
     isAllDownloaded: boolean;
-    loadDataFunction: loadDataFunctionCustomType;
     url: string;
     title: string;
     navName : string;  
-    index: number
 }
+
+export type commonType = commonWithoutFunctionType & {
+    loadDataFunction: loadDataFunctionCustomType;
+}
+
+
 
 export type pureData = {
     [key: string]:  number | string;
@@ -63,6 +67,17 @@ export type graphDataType = {
     data: pureData[];
 }
 
+export type graphDataWithoutFunctionType = {
+    common: commonWithoutFunctionType;
+    specific: (specificType[])[];
+    data: pureData[];
+}
+
+export type onePageType = {
+    graphsConfig: graphDataWithoutFunctionType[];
+    loadPocasiAsyncCustom: loadDataFunctionCustomType;
+}
+
 export type oneGraphDataType = {
     common: commonType;
     specific: specificType[];
@@ -77,17 +92,6 @@ export type OneGraphType = {
     graphData: oneGraphDataType;
 }
 
-
-
-
-
-
-
-
-export type allSettledType = {
-    [key in 'status' | 'value' | 'reason']: any
-}
-
 export type LayoutType = {
     children:   JSX.Element;
     allPaths:   onePathType[];
@@ -97,17 +101,9 @@ export type LayoutType = {
 export type showGraphType = (
     canvas: HTMLCanvasElement,
     canvas_pointer: HTMLCanvasElement,
-    graphHeight: number
-) => void
+    graphHeight: number) => void
 
 
-
-
-export type MetaType = {
-    title?: string;
-    keywords?: string;
-    description?: string;
-}
 
 export interface isAllDownloaded {
     isAllDownloaded: boolean
@@ -185,7 +181,7 @@ export type setPocasiType =
 export type showYearTableType = {
     pocasi: pocasiType[] | undefined ;
     setPocasi: setPocasiType;
-    editMeteo?: any;
+    editMeteo?: editMeteoType;
     user?: string;
     order?: string;
     webToken?: string;

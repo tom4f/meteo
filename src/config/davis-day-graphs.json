@@ -5,7 +5,6 @@
             "index": 0,
             "dateField": "Date",
             "isAllDownloaded": true,
-            "loadDataFunction" : null,
             "url": "dummy.php",
             "title": "Meteostanice Frymburk",
             "navName" : "Frymburk"

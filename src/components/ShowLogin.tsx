@@ -33,7 +33,6 @@ export const ShowLogin = ({
             if (this.readyState === 4 && this.status === 200) {
                 const id = JSON.parse(this.responseText);
                 const newWebToken = id[0].webToken;
-                   console.log(newWebToken);
                 if ( newWebToken === 'error' ) {
                     setLoginResp('error');
                 } else {
@@ -57,7 +56,7 @@ export const ShowLogin = ({
                     </div>
                     <div className={ FormularStyle.input_booking}>
                         <label>Heslo :</label><br />    
-                        <input name="password" onChange={ (e) => setPassword(e.target.value) } value={password} type="password" placeholder="zadejte heslo" size={10}  minLength={5} required />
+                        <input name="password" onChange={ (e) => setPassword(e.target.value) } value={password} type="password" placeholder="zadejte heslo" autoComplete="off" size={10}  minLength={5} required />
                     </div>
                     <div className={ FormularStyle.submit_booking }>
                         <input type="submit" value="Odeslat" />

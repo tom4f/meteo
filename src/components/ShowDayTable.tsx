@@ -34,7 +34,6 @@ export const ShowDayTable = () => {
                         setDavis(pdoResp);
                         const [ year, month, day ] = pdoResp[0].date.split('-');
                         const clickedDate = new Date( +year, +month - 1, +day );
-                        console.log(globalDateRef)
                         globalDateRef.current('daily', clickedDate )
                     }
                 }

@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import { graphDataType } from './TypeDefinition';
+import { graphDataWithoutFunctionType } from './TypeDefinition';
 import { OnePage } from './OnePage';
-import graphsConfigJson from './../config/davis-day-graphs.json'
+import graphsConfig from './../config/davis-day-graphs.json'
 import { loadPocasiAsync } from './../api/meteoFromFile'
 import DavisGraphsDayStyle from './../css/DavisGraphsDay.module.scss'
 
 export const DavisGraphsDay = () => {
 
     const [ isGraphLoading, setIsGraphLoading ] = useState( true )
-
-    const graphsConfig = (graphsConfigJson as any) as graphDataType[]
 
     const getTextDateFromNewDate = (updDate: Date) =>{
         return `${updDate.getFullYear()}-${ ('0' + (updDate.getMonth() + 1)).slice(-2) }-${ ('0' + updDate.getDate()).slice(-2) }`;
@@ -21,7 +19,7 @@ export const DavisGraphsDay = () => {
         index = 999
     ) => {
     
-        const graphsData = await loadPocasiAsync(start, end, index, graphsConfig) as graphDataType[]
+        const graphsData = await loadPocasiAsync(start, end, index, graphsConfig) as graphDataWithoutFunctionType[]
         setIsGraphLoading( !!graphsData[0].data[0].dummy )
 
         return graphsData

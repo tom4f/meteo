@@ -8,8 +8,6 @@ declare global {
 
 export default class GoogleAd extends Component {
 
-
-
     componentDidMount () {
         (window.adsbygoogle = window.adsbygoogle || []).push({})
     }
