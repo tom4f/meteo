@@ -4,7 +4,7 @@ import { ChangeDate } from './ChangeDate';
 
 export const ShowYearGraph = ( ) => {
 
-    const { date : { yearSum }, globalDate } = useContext(DateContext);
+    const { date : { yearSum }, reduceDate } = useContext(DateContext);
 
     const year = yearSum.getFullYear();
 
@@ -12,9 +12,9 @@ export const ShowYearGraph = ( ) => {
         <>
             <header className="header">
                 Roční graf - vyberte rok :&nbsp;
-                <button onClick ={ () => globalDate('yearSum', ChangeDate('yearSum', yearSum, 'year', -1) ) } > &nbsp; {'<'} &nbsp; </button>&nbsp;
+                <button onClick ={ () => reduceDate('yearSum', ChangeDate('yearSum', yearSum, 'year', -1) ) } > &nbsp; {'<'} &nbsp; </button>&nbsp;
                 { year }&nbsp;
-                <button onClick ={ () => globalDate('yearSum', ChangeDate('yearSum', yearSum, 'year', +1) ) } > &nbsp; {'>'} &nbsp; </button>  
+                <button onClick ={ () => reduceDate('yearSum', ChangeDate('yearSum', yearSum, 'year', +1) ) } > &nbsp; {'>'} &nbsp; </button>  
             </header>
             <article>
                 <img alt="voda"     src={ `./../../graphs/graph_voda_${year}.gif` } /> 

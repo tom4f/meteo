@@ -6,7 +6,7 @@ import { oldPocasiType, rgbCssType } from './TypeDefinition';
 
 export const ShowOldStationTable = () => {
 
-    const { globalDate } = useContext(DateContext);
+    const { reduceDate } = useContext(DateContext);
 
     const [ orderBy, setOrderBy ] = useState (
         {
@@ -29,7 +29,7 @@ export const ShowOldStationTable = () => {
                 setDavis(pdoResp);
                 const [ year, month, day ] = pdoResp[0].date.split('-');
                 const clickedDate = new Date( year, month - 1, day );
-                globalDate('daily', clickedDate );
+                reduceDate('daily', clickedDate );
             }
         }
         xhr.onerror = () => console.log("** An error occurred during the transaction");

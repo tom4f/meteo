@@ -6,7 +6,7 @@ import StatisticStyle from './../css/Statistic.module.scss'
 
 export const ShowDayStatistic = () => {
 
-    const { date : { davisStat }, globalDate } = useContext(DateContext);
+    const { date : { davisStat }, reduceDate } = useContext(DateContext);
     
     const [davisText, setDavisText] = useState({
         month: '',
@@ -37,7 +37,7 @@ export const ShowDayStatistic = () => {
         } , [ year, month ]);
 
     const setDate = ( period: string, step: 1 | -1 ) => {
-        globalDate('davisStat', ChangeDate('davisStat', davisStat, period, step) )
+        reduceDate('davisStat', ChangeDate('davisStat', davisStat, period, step) )
     }
     
     return (

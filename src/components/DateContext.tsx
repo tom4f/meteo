@@ -10,7 +10,7 @@ const defaultDate: dateType = {
 
 const dummyFunc = (param: string, value: Date) => {}
 
-export const DateContext = createContext( { date: defaultDate, globalDate: dummyFunc });
+export const DateContext = createContext( { date: defaultDate, reduceDate: dummyFunc });
 
 export const DateProvider = ( { children }: { children: React.ReactNode } ) => {
 
@@ -48,13 +48,13 @@ export const DateProvider = ( { children }: { children: React.ReactNode } ) => {
     }
     const [ date, dispatch ] = useReducer( reducerFunc, Store.getDateFromStorage() );
 
-    const globalDate = ( param: string, value: Date ) => dispatch( {
+    const reduceDate = ( param: string, value: Date ) => dispatch( {
                 type: 'UPDATE_DATE',
                 payload : { param, value }
             })
     
     return (
-        <DateContext.Provider value = { { date, globalDate } }>
+        <DateContext.Provider value = { { date, reduceDate } }>
             { children }
         </DateContext.Provider>
     );

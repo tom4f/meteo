@@ -11,7 +11,7 @@ export const ShowYearTable = ({
     webToken = 'error' }: showYearTableType) => {
 
     const refresh = editMeteo?.refresh ?? 0
-    const { globalDate } = useContext(DateContext);
+    const { reduceDate } = useContext(DateContext);
 
     const [ orderBy, setOrderBy ] = useState (
         {
@@ -36,7 +36,7 @@ export const ShowYearTable = ({
                     setPocasi(pdoResp);
                     const [ year, month, day ] = pdoResp[0].datum.split('-');
                     const clickedDate = new Date( year, month - 1, day );
-                    globalDate('yearSum', clickedDate );
+                    reduceDate('yearSum', clickedDate );
                 }
             } 
         }

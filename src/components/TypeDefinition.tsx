@@ -131,11 +131,11 @@ export type reducerActionType = {
     }
 }
 
-export type globalDateType = (param: string, value: Date) => void
+export type reduceDateType = (param: string, value: Date) => void
 
 export type providerType = {
     date: dateType;
-    globalDate: globalDateType;
+    reduceDate: reduceDateType;
 }
 
 export type davisType = {

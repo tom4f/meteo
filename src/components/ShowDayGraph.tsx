@@ -6,7 +6,7 @@ import { commonPath } from '../api/apiPath'
 
 export const ShowDayGraph = () => {
 
-    const { date : { daily }, globalDate  } = useContext(DateContext);
+    const { date : { daily }, reduceDate  } = useContext(DateContext);
 
     const year  = daily.getFullYear();
     let month = daily.getMonth() + 1;
@@ -19,7 +19,7 @@ export const ShowDayGraph = () => {
     const imgBig = `${commonPath}/rekreace/aktuality_big_graph.php?width_graph=1480&year=${year}&id=${year}-${monthString}-${dayString}`;
 
     const setDate = ( period: string, step: 1 | -1 ) => {
-        globalDate('daily', ChangeDate('daily', daily, period, step) )
+        reduceDate('daily', ChangeDate('daily', daily, period, step) )
     }
 
     return (

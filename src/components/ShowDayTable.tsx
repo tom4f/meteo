@@ -6,9 +6,9 @@ import { davisType } from './TypeDefinition';
 
 export const ShowDayTable = () => {
 
-    const { globalDate } = useContext(DateContext);
+    const { reduceDate } = useContext(DateContext);
 
-    const globalDateRef = useRef( globalDate )
+    const reduceDateRef = useRef( reduceDate )
 
     const [ start  , setStart   ] = useState(0);
     const [ orderBy, setOrderBy ] = useState(
@@ -34,7 +34,7 @@ export const ShowDayTable = () => {
                         setDavis(pdoResp);
                         const [ year, month, day ] = pdoResp[0].date.split('-');
                         const clickedDate = new Date( +year, +month - 1, +day );
-                        globalDateRef.current('daily', clickedDate )
+                        reduceDateRef.current('daily', clickedDate )
                     }
                 }
             }
@@ -65,7 +65,7 @@ export const ShowDayTable = () => {
         const clickedText = (e.target as HTMLTableCellElement).innerText;
         const [ year, month, day ] = clickedText.split('-');
         const clickedDate = new Date( +year, +month - 1, +day );
-        globalDate('daily', clickedDate );
+        reduceDate('daily', clickedDate );
         // go to graph location
         window.location.href = '#detail_graphs';
     }
