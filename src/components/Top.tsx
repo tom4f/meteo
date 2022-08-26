@@ -1,6 +1,6 @@
 import TopStyles from './../css/Top.module.scss'
 import mainImg              from '../images/main.jpg';
-import GoogleAd             from './GoogleAd';
+import {GoogleAd}             from './GoogleAd';
 
 const Top = () => {
 

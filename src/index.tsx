@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './css/index.scss';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
@@ -24,13 +24,12 @@ replace = isLipnonet ? '/lipnonet' + replace : replace
 //console.log(path + ' -> ' + cutLastPart  + ' -> ' + replace)
 
 
-ReactDOM.render(
-<React.StrictMode>
-  <Router basename={replace}>
-    <App />
-  </Router>
-</React.StrictMode>,
-document.getElementById('root')
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <Router basename={replace}>
+      <App />
+    </Router>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

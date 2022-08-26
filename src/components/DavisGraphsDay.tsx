@@ -38,7 +38,7 @@ export const DavisGraphsDay = () => {
     return (
         <>
             <header className="header">
-                <a href="https://www.frymburk.com/projects/92_canvas_graph/index_davis.html">
+                <a href="https://www.frymburk.com/projects/92_canvas_graph/day.html">
                 HISTORIE - dynamické grafy - na celou obrazovku &nbsp;
                     <i className="fas fa-expand-arrows-alt"></i>
                 </a>
