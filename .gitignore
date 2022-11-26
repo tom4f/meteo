@@ -11,6 +11,7 @@
 # production
 /build
 /public/davis/
+/public/rekreace/
 
 # misc
 .DS_Store
@@ -24,3 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 
 .vscode
+node_modules
